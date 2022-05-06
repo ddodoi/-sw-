@@ -9,7 +9,7 @@
 3. 걷는 소리 출력에 문제가 있습니다.
 4. 이미지 파일배경도 투명화 시켰습니다.
 5. 파이게임모듈 공부에 이용한 곳입니다.
-   _<https://youtu.be/QCKm6BK3IcE>
-   _<https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=samsjang&logNo=220713309790>
+   *<https://youtu.be/QCKm6BK3IcE>
+   *<https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=samsjang&logNo=220713309790>
 
 ---
