@@ -7,7 +7,7 @@ pygame.display.set_caption("Life is Egg")
 
 fps = pygame.time.Clock()
 
-image_human = pygame.image.load("C:/Users/cksdn/Desktop/cwLee/img/child.png")
+image_human = pygame.image.load("C:/Users/cksdn/Desktop/cwLee/img/adolescence.png")
 image_human = pygame.transform.scale(image_human, (100, 100))
 image_human_di = 0
 human_walk_sound = pygame.mixer.Sound(
