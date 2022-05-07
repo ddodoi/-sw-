@@ -2,8 +2,8 @@
 
 ---
 
-1주차
-
+## 1주차
+### 5.7
 1. 파이게임모듈 공부해서 간단하게 만들어 보았습니다.
 2. 게임명은 임시로 정했으며 나중에 결정되면 변경할 것입니다.
 3. 걷는 소리 출력에 문제가 있습니다.
@@ -13,5 +13,6 @@
     <https://youtu.be/QCKm6BK3IcE>
     
     <https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=samsjang&logNo=220713309790>
-
+### 5.8
+1. 이미지변경 구현 해보았습니다.
 ---
