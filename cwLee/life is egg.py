@@ -2,13 +2,14 @@ import pygame
 
 pygame.init()
 
-background = pygame.display.set_mode((1000, 600))
+background = pygame.display.set_mode((1080, 600))
 pygame.display.set_caption("Life is Egg")
 
 fps = pygame.time.Clock()
 
-image_human = pygame.image.load("C:/Users/cksdn/Desktop/cwLee/img/adolescence.png")
-image_human = pygame.transform.scale(image_human, (100, 100))
+image_human = pygame.image.load(
+    "C:/Users/cksdn/Desktop/cwLee/img/adolescence.png")
+image_human = pygame.transform.scale(image_human, (90, 90))
 image_human_di = 0
 human_walk_sound = pygame.mixer.Sound(
     "C:/Users/cksdn/Desktop/cwLee/sound/walksound.mp3")
@@ -29,8 +30,6 @@ while play:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             play = False
-        if event.type == pygame.QUIT:
-            play = False
         if event.type == pygame.KEYDOWN:
             if sound_play == 0:
                 pygame.mixer.Sound.play(human_walk_sound)
@@ -45,6 +44,10 @@ while play:
                     image_human = pygame.transform.flip(
                         image_human, True, False)
                     image_human_di = 0
+            elif event.key == pygame.K_SPACE:
+                image_human = pygame.image.load(
+                    "C:/Users/cksdn/Desktop/cwLee/img/adult.png")
+                image_human = pygame.transform.scale(image_human, (90, 90))
             elif event.key == pygame.K_d:
                 to_x += 2
                 if image_human_di == 0:
