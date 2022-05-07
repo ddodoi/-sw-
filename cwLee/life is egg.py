@@ -2,7 +2,7 @@ import pygame
 
 pygame.init()
 
-background = pygame.display.set_mode((1080, 600))
+background = pygame.display.set_mode((1000, 600))
 pygame.display.set_caption("Life is Egg")
 
 fps = pygame.time.Clock()
