@@ -23,7 +23,7 @@ def game_text(word):
 
 
 start = True
-tutorial = ["Welcome.", "게임에 참가하게 된 것을 환영합니다.",
+prologue = ["Welcome.", "게임에 참가하게 된 것을 환영합니다.",
             "방법은 지극히 간단합니다. 어렵지 않아요.", "앞으로 마주할 커다란 갈림길 앞에서…", "당신은 하나의 선택을 하게 될 것입니다.", "그리고 그 선택이 서로 다른 이야기를 만들고.", "서로 다른 결말을 낳겠죠.", "……우리 모두가 그렇듯이", "그럼, 출발합시다."]
 
 image_human = pygame.image.load(
@@ -60,7 +60,7 @@ while play:
 
     if start:
         start = False
-        for i in tutorial:
+        for i in prologue:
             background.fill((255, 255, 255))
             game_text(str(i))
             pygame.display.update()
@@ -102,7 +102,6 @@ while play:
                 to_x = 0
             elif event.key == pygame.K_d:
                 to_x = 0
-            pygame.mixer.music.stop(human_walk_sound)
 
     x_pos_human += to_x
     y_pos_human += to_y
