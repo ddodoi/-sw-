@@ -54,7 +54,7 @@ y_pos_wall = background.get_size()[1] - size_wall_height
 
 background_sound = pygame.mixer.music.load(
     "C:/Users/cksdn/project/cwLee/sound/background.mp3")
-pygame.mixer.music.set_volume(0.5)
+pygame.mixer.music.set_volume(0.3)
 
 to_x = 0
 to_y = 0
