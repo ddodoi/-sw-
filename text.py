@@ -2,39 +2,39 @@ import pygame
 
 pygame.init()
 
-background = pygame.display.set_mode((1000, 768))
-pygame.display.set_caption("Text Test")
+background = pygame.display.set_mode((1000, 768)) # 배경화면 설정 가로: 1000 세로: 768
+pygame.display.set_caption("Text Test") # 제목
 
-fps = pygame.time.Clock()
+fps = pygame.time.Clock() # 게임 속도
 
-level = 0
+level = 0 # 단계 <소년기> = 0, <청년기> = 1, <장년기> = 2, <노년기> = 3
 
 
-def level_text(a, b):
-    font = pygame.font.SysFont('전주완판본각b', 40)
+def level_text(a, b): # 텍스트 2줄 출력함수
+    font = pygame.font.SysFont('전주완판본각b', 40) # 폰트, 크기설정
 
-    atext = font.render(a, True, (255, 255, 255))
-    btext = font.render(b, True, (255, 255, 255))
+    atext = font.render(a, True, (255, 255, 255)) # 1번 문자열, 표면부드럽게, 색깔
+    btext = font.render(b, True, (255, 255, 255)) # 2번 문자열, 표면부드럽게, 색깔
 
-    size_width_atext = atext.get_rect().size[0]
-    size_height_atext = atext.get_rect().size[1]
-    size_width_btext = btext.get_rect().size[0]
-    size_height_btext = btext.get_rect().size[1]
+    size_width_atext = atext.get_rect().size[0] # 1번 크기
+    size_height_atext = atext.get_rect().size[1] # 1번 높이
+    size_width_btext = btext.get_rect().size[0] # 2번 크기
+    size_height_btext = btext.get_rect().size[1]# 2번 높이
 
-    x_pos_atext = background.get_size()[0]/2 - size_width_atext/2
-    y_pos_atext = background.get_size()[1]/4 - size_height_atext
-    x_pos_btext = background.get_size()[0]/2 - size_width_btext/2
-    y_pos_btext = background.get_size()[1]/2 + size_height_btext
+    x_pos_atext = background.get_size()[0]/2 - size_width_atext/2 # 1번 x좌표
+    y_pos_atext = background.get_size()[1]/4 - size_height_atext  # 1번 y좌표
+    x_pos_btext = background.get_size()[0]/2 - size_width_btext/2 # 2번 x좌표
+    y_pos_btext = background.get_size()[1]/2 + size_height_btext  # 2번 y좌표
 
-    background.fill((0, 0, 0))
-    background.blit(atext, (x_pos_atext, y_pos_atext))
-    background.blit(btext, (x_pos_btext, y_pos_btext))
-    pygame.display.update()
-    pygame.time.delay(1800)
+    background.fill((0, 0, 0)) # 배경화면 검은색
+    background.blit(atext, (x_pos_atext, y_pos_atext)) # 1번 생성(x,y)
+    background.blit(btext, (x_pos_btext, y_pos_btext)) # 2번 생성(x,y)
+    pygame.display.update() # 변경사항 화면반영
+    pygame.time.delay(1800) # 1.8초 대기 (1/1000초)
 
 # prologue
 
-
+# 선택할 분기 문자열
 selection_steps = [["<소년기>-공부", "무언가를 배우고 좋은 성적을 받는 것을 좋아하는군요.", "<소년기>-예체능", "당신의 끼를 발산하는 것을 좋아하는군요."],
                    ["<청년기>-전공", "당신은 꿈을 좇아 멈추지 않는군요.",
                     "<청년기>-연애", "청춘은 불같은 사랑 없이는 성립하지 않죠."],
@@ -47,25 +47,25 @@ selection_steps = [["<소년기>-공부", "무언가를 배우고 좋은 성적�
 # ending
 
 play = True
-while play:
-    deltaTime = fps.tick(30)
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
+while play: # play가 True일동안 출력 
+    deltaTime = fps.tick(30) # 30프레임
+    for event in pygame.event.get(): # 파이게임 이벤트
+        if event.type == pygame.QUIT: # 파이게임을 끄면 종료
             play = False
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_ESCAPE:
+        if event.type == pygame.KEYDOWN: # 키보드를 누름
+            if event.key == pygame.K_ESCAPE: # esc누르면 종료
                 play = False
-            elif event.key == pygame.K_q:
+            elif event.key == pygame.K_q: # q를 누르면 왼쪽 분기 선택, 문자열 출력, 단계 상승 
                 if level < 3:
-                    level_text(selection_steps[level]
+                    level_text(selection_steps[level] 
                                [0], selection_steps[level][1])
-                    level += 1
-            elif event.key == pygame.K_e:
+                    level += 1 
+            elif event.key == pygame.K_e: # e를 누르면 왼쪽 분기 선택,문자열 출력, 단계 상승
                 if level < 3:
                     level_text(selection_steps[level]
                                [2], selection_steps[level][3])
                     level += 1
-        if level >= 3:
+        if level >= 3: # 노년기가 되면 게임 종료
             pygame.time.delay(1200)
             level_text("<노년기>", "END")
             play = False
@@ -73,4 +73,4 @@ while play:
     background.fill((0, 0, 0))
     pygame.display.update()
 
-pygame.quit()
+pygame.quit() # 파이게임 종료
