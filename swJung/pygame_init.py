@@ -1,13 +1,13 @@
 import pygame
 import time
 from character import Character  # 캐릭터 모듈 import
-#from envrionment import Env
+from envrionment import Env
 DEBUGGING = True  # 디버깅 모드 변수
 # 게임초기화
 pygame.init()
 
 # 게임창 옵션 설정
-background_size = [600, 900]  # 화면크기
+background_size = (600, 900)  # 화면크기
 screen = pygame.display.set_mode(background_size)  # 화면크기 세팅
 title = 'My Game'
 pygame.display.set_caption(title)  # 제목세팅
@@ -29,10 +29,10 @@ choices = [('Study', 'Art'),
            ('Work', 'Family')]  # 선택지
 select = []  # 선택지 저장
 ch = Character(background_size)  # 캐릭터 객체 설정
-# env = Env()  # 게임 환경 객체 설정
+env = Env()  # 게임 환경 객체 설정
 
 
-def door_dist(x, y):
+def door_dist(x, y):  # 문 을 여는 거리
     if y == 375 and 295 <= x <= 370:
         return 'Right'
     elif y == 375 and 100 <= x <= 175:
@@ -42,7 +42,8 @@ def door_dist(x, y):
 left_go = right_go = down_go = up_go = False  # 키 입력 변수
 
 movement = 5  # 이동량
-
+env.print_prologue()
+env.enter_script(stage)
 # main event
 Running = True  # 게임 진행 변수
 while Running:
@@ -53,6 +54,7 @@ while Running:
     except FileNotFoundError:
         break
     # 입력감지
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:  # quit에 대한 명령일 경우 종료
             Running = False
@@ -69,17 +71,22 @@ while Running:
                 down_go = True
             elif door_dist(ch.x, ch.y) == 'Left' and pygame.K_SPACE:
                 door_sound.play()
+                walk_sound.stop()
                 select.append(choices[stage][0])
+                env.choice_script(choices[stage][0])
+                env.enter_script(stage+1)
                 ch.stage_chage()
                 stage += 1
             elif door_dist(ch.x, ch.y) == 'Right' and pygame.K_SPACE:
                 door_sound.play()
+                walk_sound.stop()
                 select.append(choices[stage][1])
+                env.choice_script(choices[stage][1])
+                env.enter_script(stage+1)
                 ch.stage_chage()
                 stage += 1
-
         elif event.type == pygame.KEYUP:  # key를 뗐을때
-            walk_sound.fadeout(450)  # 0.45초 딜레이후 걷는 소리 재생 종료
+            walk_sound.fadeout(450)
             if event.key == pygame.K_LEFT:
                 left_go = False
             elif event.key == pygame.K_RIGHT:
