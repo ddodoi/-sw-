@@ -32,18 +32,19 @@ choices = [('Study', 'Art'),
            ('Work', 'Family')]  # 선택지
 select = []  # 선택지 저장
 ch = Character(background_size, screen)  # 캐릭터 객체 설정
-scripts = Script()  # 게임 환경 객체 설정
+scripts = Script()  # 스크립트 재생 객체 설정
 
 
 def door_dist(x, y):  # 문 을 여는 거리
-    if 375 <= y <= 390 and 295 <= x <= 370:
+    if 420 <= y <= 430 and 295 <= x <= 370:
         return 'Right'
-    elif 375 <= y <= 390 and 100 <= x <= 175:
+        # 기존 375 <= y <= 390
+    elif 420 <= y <= 430 and 100 <= x <= 175:
         return 'Left'
 
 
 def door_open(key):
-    global stage, Left
+    global stage, Left_watching
     bgm.pause_music()
     door_sound.play()
     walk_sound.stop()
@@ -53,7 +54,7 @@ def door_open(key):
     ch.stage_chage()
     stage += 1
     bgm.unpause_music()
-    Left = True
+    Left_watching = True
 
 
 left_go = right_go = down_go = up_go = False  # 키 입력 변수
@@ -65,7 +66,7 @@ scripts.enter_script(stage)
 bgm.play_music()
 # main event
 Running = True  # 게임 진행 변수
-Left = True
+Left_watching = True
 while Running:
     # FPS 설정
     clock.tick(60)  # while문 반복 1초에 60번 간격으로 설정
@@ -83,14 +84,14 @@ while Running:
             time.sleep(0.1)  # 소리 재생 딜레이 방지용 0.1초 움직임 딜레이
             if event.key == pygame.K_LEFT:
                 left_go = True
-                if not Left:
+                if not Left_watching:
                     ch.flip()
-                    Left = True
+                    Left_watching = True
             elif event.key == pygame.K_RIGHT:
                 right_go = True
-                if Left:
+                if Left_watching:
                     ch.flip()
-                    Left = False
+                    Left_watching = False
             elif event.key == pygame.K_UP:
                 up_go = True
             elif event.key == pygame.K_DOWN:
@@ -123,8 +124,8 @@ while Running:
             ch.x = 435
     elif up_go:
         ch.y -= movement
-        if ch.y <= 375:
-            ch.y = 375
+        if ch.y <= 430:
+            ch.y = 430      # 기존 375
     elif down_go:
         ch.y += movement
         if ch.y >= background_size[1]-ch.sy-15:
