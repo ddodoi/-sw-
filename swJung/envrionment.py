@@ -1,5 +1,5 @@
 import pygame
-import time
+
 pygame.init()
 
 background_size = (600, 900)  # 화면크기
@@ -11,7 +11,7 @@ Black = (0, 0, 0)
 white = (255, 255, 255)
 
 
-class Env:
+class Script:
     def __init__(self):
         pass
 
@@ -78,3 +78,19 @@ class Env:
         screen.blit(text, (x_pos_text, y_pos_text))
         pygame.display.flip()
         pygame.time.delay(3000)
+
+    def stage_status(self, stage):
+        stage_name = ['<소년기>', '<청년기>',
+                      '<장년기>', '<노년기>']
+        # 폰트설정
+        font = pygame.font.Font('./font/DungGeunMo.ttf', 20)
+        # 폰트를 이미지로 변경
+        text = font.render(f'{stage_name[stage]}', True, white)
+        # 화면에 폰트가 표시되는 위치 설정
+        screen.blit(text, (510, 5))
+        # 화면 업데이트
+        pygame.display.flip()
+
+
+if __name__ == '__main__':
+    print('This is environment module')
