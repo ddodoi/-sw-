@@ -1,5 +1,5 @@
 import pygame
-
+import os
 pygame.init()
 
 background_size = (600, 900)  # 화면크기
@@ -13,7 +13,8 @@ white = (255, 255, 255)
 
 class Script:
     def __init__(self):
-        pass
+        self.address = os.path.join(
+            os.getcwd(), 'font', 'DungGeunMo.ttf')
 
     def print_prologue(self):
         prologue = ["어서오세요.",
@@ -25,7 +26,7 @@ class Script:
                     "서로 다른 결말을 낳겠죠.",
                     "……우리 모두가 그렇듯이",
                     "그럼, 출발합시다."]
-        font = pygame.font.Font('./font/DungGeunMo.ttf', 17)
+        font = pygame.font.Font(self.address, 17)
         for line in prologue:
             screen.fill(Black)
             text = font.render(line, True, white)
@@ -46,7 +47,7 @@ class Script:
                       '<장년기>', '인생의 반환점을 지나온 당신.',
                       '이제는 어디에 충실해야 할지 알 것 같은데?', '']
         try:
-            font = pygame.font.Font('./font/DungGeunMo.ttf', 16)
+            font = pygame.font.Font(self.address, 16)
             for i in range(1, 4):
                 screen.fill(Black)
                 text = font.render(script_lst[3*stage+i], True, white)
@@ -69,7 +70,7 @@ class Script:
                       'Family': '역시 곁에 있어 주는 가족이 최고죠.'
                       }
         screen.fill(Black)
-        font = pygame.font.Font('./font/DungGeunMo.ttf', 17)
+        font = pygame.font.Font(self.address, 17)
         text = font.render(script_dct[key], True, white)
         size_width_text = text.get_rect().size[0]
         size_height_text = text.get_rect().size[1]
@@ -83,11 +84,11 @@ class Script:
         stage_name = ['<소년기>', '<청년기>',
                       '<장년기>', '<노년기>']
         # 폰트설정
-        font = pygame.font.Font('./font/DungGeunMo.ttf', 20)
+        font = pygame.font.Font(self.address, 20)
         # 폰트를 이미지로 변경
         text = font.render(f'{stage_name[stage]}', True, white)
         # 화면에 폰트가 표시되는 위치 설정
-        screen.blit(text, (510, 5))
+        screen.blit(text, (510, 10))  # 기존 (510,5)
         # 화면 업데이트
         pygame.display.flip()
 

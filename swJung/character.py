@@ -1,4 +1,5 @@
 import pygame
+import os
 
 
 class Character:
@@ -7,7 +8,8 @@ class Character:
         self.age = 1
         self.size = size
         self.screen = screen
-        self.put_img('./img/1_left_front_img.png')
+        self.put_img(os.path.join(os.getcwd(), 'img',
+                     f'{self.age}_left_front_img.png'))
         self.change_size(120, 120)  # 초기 캐릭터 크기 설정
         self.init_position(self.size)  # 초기 위치
 
@@ -42,7 +44,8 @@ class Character:
         self.age += 1
         if self.age > 4:  # 추후수정
             self.age = 1
-        self.put_img(f'./img/{self.age}_left_front_img.png')
+        self.put_img(os.path.join(os.getcwd(), 'img',
+                     f'{self.age}_left_front_img.png'))
         self.change_size(120, 120)
         self.init_position(self.size)
 
