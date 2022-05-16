@@ -1,0 +1,10 @@
+로컬에서 깃 변경 기록
+git add .
+git commit -m "남길말"
+
+원격레포지토리에 업로드
+git push origin main
+
+원격레포지토리에서 다운로드
+
+git pull origin main
