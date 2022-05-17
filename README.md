@@ -20,4 +20,4 @@
 
 ## :mag_right: 개발현황
 
-![footer](https://capsule-render.vercel.app/api?type=waving&color=auto&height=250&section=footer&text=감사합니다!!&animation=fadeIn&fontAlignY=30)
+![footer](https://capsule-render.vercel.app/api?type=waving&color=auto&height=250&section=footer&text=감사합니다!!&animation=fadeIn&fontAlignY=45)
