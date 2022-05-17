@@ -38,7 +38,8 @@
 ###  ● 이동 알고리즘 
 ![My First Board (1)](https://user-images.githubusercontent.com/101384306/168837605-510ea7d5-c635-4168-850d-d78c07fd7c1d.jpg)
 ###  ● 게임 알고리즘
-![Flowchart](https://user-images.githubusercontent.com/101384306/168834274-cc941524-3596-4e38-b6d3-9996193c1e18.jpg)  
+![Flowchart](https://user-images.githubusercontent.com/101384306/168874709-e6879cb4-5254-45c0-b00e-0f67e8385ae5.jpg)
+
    
    
 # :mag_right: 개발현황
