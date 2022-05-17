@@ -1,7 +1,17 @@
-#                                                                     티나 - 오픈소스SW및실습 15팀 
-
+# 티나 - 오픈소스SW및실습 15팀 
+</p>
+  <p align="center">
+    <a href="https://github.com/anuraghazra/github-readme-stats/actions">
+      <img alt="Tests Passing" src="https://github.com/anuraghazra/github-readme-stats/workflows/Test/badge.svg" />
+</p>
 ## :family:역할
-
+|이름|역할|github|
+|------|---|---|
+|홍지나|팀장, 디자이너|테스트3|
+|정성욱|개발자, ppt작성|테스트3|
+|윤국희|기획자, 개발자|테스트3|
+|이찬우|개발자|테스트3|
+|김도형|스토리 작가, 현황 기록|테스트3|
 ## :clipboard:계획
 
 ## :video_game:게임소개
