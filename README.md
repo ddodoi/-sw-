@@ -6,11 +6,7 @@
 |홍지나|팀장, 디자이너|테스트3|
 |정성욱|개발자, ppt작성|테스트3|
 |윤국희|기획자, 개발자|테스트3|
-|이찬우|개발자|</p>
-  <p align="left">
-    <a href="https://github.com/cksdn43">
-      <img alt="github" src="https://github.com/anuraghazra/github-readme-stats/workflows/Test/badge.svg" />
-</p> |
+|이찬우|개발자||
 |김도형|스토리 작가, 현황 기록|테스트3|
 ## :clipboard:계획
 
