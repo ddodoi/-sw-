@@ -1,13 +1,13 @@
 # 티나 - 오픈소스SW및실습 15팀 
 
-
+<img src="https://user-images.githubusercontent.com/101384306/168852628-0eeb5cd3-db07-460d-b863-b6455b9d1f1a.svg/github-#FFFFFF?style=flat-square&logo=로고명&logoColor=black"/>
 ## :family:역할
 |이름|역할|github|
 |------|---|---|
 |홍지나|**팀장**, 디자이너|테스트3|
 |정성욱|개발자, ppt작성|테스트3|
 |윤국희|기획자, 개발자|테스트3|
-|이찬우|개발자|<img src="https://user-images.githubusercontent.com/101384306/168852628-0eeb5cd3-db07-460d-b863-b6455b9d1f1a.svg/github-#FFFFFF?style=flat-square&logo=로고명&logoColor=black"/>|
+|이찬우|개발자||
 |김도형|스토리 작가, 현황 기록|테스트3|
 ## :clipboard:계획
 
