@@ -1,4 +1,5 @@
 # 티나 - 오픈소스SW및실습 15팀 
+![header](https://capsule-render.vercel.app/api?type=wave&color=auto&height=300&section=header&text=capsule%20render&fontSize=90)
 
 ## :family: 팀원
 |이름|역할|GitHub|
