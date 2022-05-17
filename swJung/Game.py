@@ -1,5 +1,6 @@
 import pygame
 import time
+import os
 from character import Character  # 캐릭터 모듈 import
 from envrionment import Script
 from sounds import Bgm
@@ -14,18 +15,18 @@ title = 'My Game'
 pygame.display.set_caption(title)  # 제목세팅
 
 walk_sound = pygame.mixer.Sound(  # 소리세팅
-    './sound/walksound.mp3')
+    os.path.join(os.getcwd(), 'sound', 'walksound.mp3'))
 door_sound = pygame.mixer.Sound(
-    './sound/doorsound.mp3'
+    os.path.join(os.getcwd(), 'sound', 'doorsound.mp3')
 )
-bgm = Bgm('./sound/background.mp3')
+bgm = Bgm(os.path.join(os.getcwd(), 'sound', 'background.mp3'))
 
 # 게임 내 필요한 설정
 clock = pygame.time.Clock()  # 시간 변수 설정
 black = (0, 0, 0)
 white = (255, 255, 255)
 color = black     # 색상설정 RGB
-stage = 0
+stage = 1
 
 choices = [('Study', 'Art'),
            ('Major', 'Love'),
@@ -48,11 +49,11 @@ def door_open(key):
     bgm.pause_music()
     door_sound.play()
     walk_sound.stop()
-    select.append(choices[stage][key])
-    scripts.choice_script(choices[stage][key])
-    scripts.enter_script(stage+1)
-    ch.stage_chage()
+    scripts.choice_script(choices[stage-1][key])
+    select.append(choices[stage-1][key])
     stage += 1
+    scripts.enter_script(stage-1)
+    ch.stage_chage()
     bgm.unpause_music()
     Left_watching = True
 
@@ -62,7 +63,7 @@ left_go = right_go = down_go = up_go = False  # 키 입력 변수
 movement = 5  # 이동량
 if not DEBUGGING:
     scripts.print_prologue()
-scripts.enter_script(stage)
+scripts.enter_script(stage-1)
 bgm.play_music()
 # main event
 Running = True  # 게임 진행 변수
@@ -71,7 +72,8 @@ while Running:
     # FPS 설정
     clock.tick(60)  # while문 반복 1초에 60번 간격으로 설정
     try:
-        background = pygame.image.load(f'./img/Room{stage+1}_final_cg.png')
+        background = pygame.image.load(
+            os.path.join(os.getcwd(), 'img', f'Room{stage}_final_cg.png'))
     except FileNotFoundError:
         print("ERROR!!")
         break
@@ -137,7 +139,7 @@ while Running:
     screen.fill(color)
     screen.blit(background, (0, 0))
     ch.show(screen)  # 캐릭터를 스크린에 표시
-    scripts.stage_status(stage)
+    scripts.stage_status(stage-1)
 
 # 게임 종료
 pygame.quit()
