@@ -19,3 +19,5 @@
 ![Flowchart](https://user-images.githubusercontent.com/101384306/168834274-cc941524-3596-4e38-b6d3-9996193c1e18.jpg)
 
 ## :mag_right: 개발현황
+
+![footer](https://capsule-render.vercel.app/api?type=wave&color=auto&height=200&section=footer&text=감사합니다!&fontSize=90)
