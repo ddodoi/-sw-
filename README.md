@@ -1,9 +1,11 @@
-# 티나 - 오픈소스SW및실습 15팀 
+# 티나 - 오픈소스SW및실습 15팀
+
 </p>
   <p align="center">
     <a href="https://github.com/anuraghazra/github-readme-stats/actions">
       <img alt="Tests Passing" src="https://github.com/anuraghazra/github-readme-stats/workflows/Test/badge.svg" />
 </p>
+ 
 ## :family:역할
 |이름|역할|github|
 |------|---|---|
