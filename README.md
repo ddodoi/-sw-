@@ -1,6 +1,7 @@
 # 티나 - 오픈소스SW및실습 15팀 
 
-<img src="https://github.svg/101384306/168852628-0eeb5cd3-db07-460d-b863-b6455b9d1f1a.svg/github-#FFFFFF?style=flat-square&logo=github&logoColor=black"/>
+<img src="![github](https://user-images.githubusercontent.com/101384306/168853706-cb223eb4-31ce-4a1a-a658-bf73b772a17a.svg)/github-#FFFFFF?style=flat-square&logo=github&logoColor=black"/>
+
 
 ## :family:역할
 |이름|역할|github|
