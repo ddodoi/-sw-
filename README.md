@@ -10,7 +10,7 @@
   <p align="left">
     <a href="https://github.com/cksdn43">
       <img alt="github" src="https://github.com/anuraghazra/github-readme-stats/workflows/Test/badge.svg" />
-</p>|
+</p> |
 |김도형|스토리 작가, 현황 기록|테스트3|
 ## :clipboard:계획
 
