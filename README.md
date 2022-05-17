@@ -1,5 +1,5 @@
 # 티나 - 오픈소스SW및실습 15팀 
-![header](https://capsule-render.vercel.app/api?type=wave&color=auto&height=300&section=header&text=티나%20-%20오픈소스SW및실습20%15팀&fontSize=90)
+![header](https://capsule-render.vercel.app/api?type=wave&color=auto&height=300&section=header&text=티나%20-%20오픈소스SW및실습%2015팀&fontSize=90)
 
 ## :family: 팀원
 |이름|역할|GitHub|
