@@ -4,7 +4,7 @@
 
 ## :clipboard:계획
 
-## :sparkles:게임소개
+## :video_game:게임소개
 
 ### 알고리즘
 ### ① 이동 알고리즘 
