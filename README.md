@@ -19,7 +19,9 @@
 |11~12주차|<소년기>, <청년기>, <장년기> 선택지 코드 작성|
 |13주차|코드에 그래픽 삽입, 개발 마무리|
 |14주차|디버깅 및 점검 작업|  
-| hello and again welcome ||
+| hello
+and again
+welcome ||
   
   
 # :video_game: 게임소개
