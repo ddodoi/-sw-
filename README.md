@@ -1,6 +1,6 @@
 # 티나 - 오픈소스SW및실습 15팀 
 
-## :family:역할
+## :family:팀원
 |이름|역할|GitHub|
 |------|---|---|
 |홍지나|**팀장**, 디자이너| <a href="https://github.com/ddodoi"><img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=white"/></a> |
