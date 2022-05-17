@@ -1,4 +1,4 @@
- ![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=티나%20-%20오픈소스SW및실습%2015팀&fontSize=70&animation=fadeIn&fontAlignY=38&desc=Decorate%20GitHub%20Profile%20or%20any%20Repo%20like%20me!&descAlignY=51&descAlign=62)
+ ![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=티나%20-%20오픈소스SW및실습%2015팀&fontSize=40&animation=fadeIn&fontAlignY=38&descAlignY=51&descAlign=62)
 ## :family: 팀원
 |이름|역할|GitHub|
 |------|---|---|
