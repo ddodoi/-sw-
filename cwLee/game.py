@@ -26,7 +26,7 @@ start = True
 prologue = ["어서오세요.", "게임에 참가하게 된 것을 환영합니다.", "방법은 지극히 간단합니다. 어렵지 않아요.", "앞으로 마주할 커다란 갈림길 앞에서…",
             "당신은 하나의 선택을 하게 될 것입니다.", "그리고 그 선택이 서로 다른 이야기를 만들고.", "서로 다른 결말을 낳겠죠.", "……우리 모두가 그렇듯이", "그럼, 출발합시다.", ]
 
-h_img = "C:/Users/cksdn/project/cwLee/img/1st_left_front_img.png"
+h_img = "./cwLee/img/1st_left_front_img.png"
 image_human = pygame.image.load(h_img).convert_alpha()
 image_human = pygame.transform.scale(image_human, (200, 200))
 image_human_di = 0
