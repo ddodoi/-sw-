@@ -1,16 +1,12 @@
 # 티나 - 오픈소스SW및실습 15팀 
 
-
-<a href="https://github.com/cksdn43"><img src="https://img.shields.io/badge/github-000000?style=flat-square&logo=github&logoColor=white"/></a>
-
-
 ## :family:역할
 |이름|역할|github|
 |------|---|---|
 |홍지나|**팀장**, 디자이너|테스트3|
 |정성욱|개발자, ppt작성|테스트3|
 |윤국희|기획자, 개발자|테스트3|
-|이찬우|개발자| <a href="https://github.com/cksdn43"><img src="https://img.shields.io/badge/github-000000?style=flat-square&logo=github&logoColor=white"/></a> |
+|이찬우|개발자| <a href="https://github.com/cksdn43"><img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=white"/></a> |
 |김도형|스토리 작가, 현황 기록|테스트3|
 ## :clipboard:계획
 
