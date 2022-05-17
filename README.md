@@ -1,6 +1,7 @@
 # 티나 - 오픈소스SW및실습 15팀 
 
-<img src="https://img.shields.io/badge/github-FFFFFF?style=flat-square&logo=github&logoColor=black"/>
+<img src="https://img.shields.io/badge/github-FFCA28?style=flat-square&logo=github&logoColor=white"/>
+<a href="https://github.com/cksdn43"><img src="https://img.shields.io/badge/github-FFCA28?style=flat-square&logo=github&logoColor=white"/></a>
 
 
 ## :family:역할
