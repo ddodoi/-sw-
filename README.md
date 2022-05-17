@@ -38,7 +38,7 @@
 ###  ● 이동 알고리즘 
 ![My First Board (1)](https://user-images.githubusercontent.com/101384306/168837605-510ea7d5-c635-4168-850d-d78c07fd7c1d.jpg)
 ###  ● 게임 알고리즘
-![Flowchart](https://user-images.githubusercontent.com/101384306/168874709-e6879cb4-5254-45c0-b00e-0f67e8385ae5.jpg)
+![Flowchart](https://user-images.githubusercontent.com/101384306/168875991-a5c446d2-8875-4fa4-b340-b869a8281e3d.jpg)
 
    
    
