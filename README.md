@@ -33,8 +33,9 @@
  
  + 어떤 인생이 우리를 기다리고 있을까?  
   
-  
- ## <center>!스포주의!</center> 
+<div align="center">
+  :heavy_exclamation_mark: 스포주의 :heavy_exclamation_mark:
+</div>
   
 ## 알고리즘
 
