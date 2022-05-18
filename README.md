@@ -19,9 +19,7 @@
 |11~12주차|<소년기>, <청년기>, <장년기> 선택지 코드 작성|
 |13주차|코드에 그래픽 삽입, 개발 마무리|
 |14주차|디버깅 및 점검 작업|  
-| hello
-and again
-welcome ||
+
   
   
 # :video_game: 게임소개
@@ -38,14 +36,25 @@ welcome ||
   
 ## 알고리즘
 
-###  ● 이동 알고리즘 
+###  ○ 이동 알고리즘 
 ![My First Board (1)](https://user-images.githubusercontent.com/101384306/168837605-510ea7d5-c635-4168-850d-d78c07fd7c1d.jpg)
-###  ● 게임 알고리즘
+###  ○ 게임 알고리즘
 ![Flowchart](https://user-images.githubusercontent.com/101384306/168875991-a5c446d2-8875-4fa4-b340-b869a8281e3d.jpg)
 
    
    
 # :mag_right: 개발현황
-  
-  
+<9주차>
+
+<10주차>
+
+<11주차>
+
+<12주차>
+
+<13주차>
+
+<14주차>
+
+---
 ![footer](https://capsule-render.vercel.app/api?type=waving&color=auto&height=250&section=footer&text=감사합니다!!&animation=fadeIn&fontAlignY=65)
