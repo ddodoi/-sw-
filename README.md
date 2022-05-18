@@ -1,4 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=Tina&animation=fadeIn&fontAlignY=38&desc=오픈소스SW및실습%20-%2015팀&descAlignY=55&descAlign=50)
+![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&fontSize=90&section=header&text=Tina&animation=fadeIn&fontAlignY=38&desc=오픈소스SW및실습%20-%2015팀&descAlignY=55&descAlign=50)
  
  
 # :family: 팀원
