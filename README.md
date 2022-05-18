@@ -1,4 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=Tina&animation=fadeIn&fontAlignY=38&desc=오픈소스SW및실습%20-%2015팀&descAlignY=55&descAlign=50)
+![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&fontSize=95&section=header&text=Tina&animation=fadeIn&fontAlignY=38&desc=오픈소스SW및실습%20-%2015팀&descAlignY=55&descAlign=50)
  
  
 # :family: 팀원
@@ -14,17 +14,17 @@
 # :clipboard: 계획
 |주차|날짜|내용|
 |------|------|------|
-|9주차|(4월 27일 ~ 5월 3일)|게임기획 & 설계 및 역할 분담|
-|10주차|(5월 4일 ~ 5월 10일)|GitHub에 파이게임 모듈 게시 & 리포지토리 fork 및 파이게임 모듈 공부 및 공유|
-|11~12주차|(5월 11일 ~ 5월 24일)|<소년기>, <청년기>, <장년기> 선택지 코드 작성|
-|13주차|(5월 25일 ~ 5월 31일)|코드에 그래픽 삽입, 개발 마무리|
-|14주차|(6월 1일 ~ 6월 7일)|디버깅 및 점검 작업|  
+|9주차|4월27일 ~ 5월3일|게임기획 & 설계 및 역할 분담|
+|10주차|5월4일 ~ 5월10일|GitHub에 파이게임 모듈 게시 & <br> 리포지토리 fork 및 파이게임 모듈 공부 및 공유|
+|11~12주차|5월11일 ~ 5월24일|<소년기>, <청년기>, <장년기> 선택지 코드 작성|
+|13주차|5월25일 ~ 5월31일|코드에 그래픽 삽입 & 개발 마무리|
+|14주차|6월1일 ~ 6월7일|디버깅 및 점검 작업|  
 
   
   
 # :video_game: 게임소개
 
-                                       "선택지에 따라 엔딩이 나뉘는 인생게임"
+                                      "선택지에 따라 엔딩이 나뉘는 인생게임"
                    
                    
  + 방향키를 이동해서 캐릭터를 이동해보자!  
@@ -44,17 +44,17 @@
    
    
 # :mag_right: 개발현황
-<9주차>
+### <9주차>
 
-<10주차>
+### <10주차>
 
-<11주차>
+### <11주차>
 
-<12주차>
+### <12주차>
 
-<13주차>
+### <13주차>
 
-<14주차>
+### <14주차>
 
 
 ![footer](https://capsule-render.vercel.app/api?type=waving&color=auto&height=250&section=footer&text=감사합니다!!&animation=fadeIn&fontAlignY=65)
