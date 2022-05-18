@@ -33,9 +33,9 @@
  
  + 어떤 인생이 우리를 기다리고 있을까?  
   
-<div align="center">
-  :heavy_exclamation_mark: 스포주의 :heavy_exclamation_mark:
-</div>
+<div align="center"><span style="font-size:300%"> 
+:heavy_exclamation_mark: 스포주의 :heavy_exclamation_mark:
+</span></div>
   
 ## 알고리즘
 
@@ -44,7 +44,7 @@
 ###  ○ 게임 알고리즘
 ![Flowchart](https://user-images.githubusercontent.com/101384306/168875991-a5c446d2-8875-4fa4-b340-b869a8281e3d.jpg)
 
-   
+ 
    
 # :mag_right: 개발현황
 ### <9주차>
