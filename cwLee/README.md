@@ -58,4 +58,17 @@
 1. 선택분기에 따른 텍스트 출력파일을 만들어 보았습니다.
    - q, e를 눌러 분기를 선택하면 분기에 따른 텍스트가 출력됩니다.
 
+## 12주차
+
+### 5.18
+
+1. 게임의 프로토타입을 에필로그까지 구현했습니다.
+
+2. 텍스트파일에서 텍스트를 가져오는 프로그램을 구현했습니다.
+   출처:
+   https://lngnat.tistory.com/entry/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%ED%85%8D%EC%8A%A4%ED%8A%B8-%ED%8C%8C%EC%9D%BC-%ED%95%9C%EC%A4%84%EC%94%A9-%EC%9D%BD%EA%B8%B0-%ED%95%9C%EA%B8%80-%EC%B6%9C%EB%A0%A5-Python-Read-line-Text-File
+
+재시작 구현 아이디어
+<https://www.crocus.co.kr/1684>
+
 ---
