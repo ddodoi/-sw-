@@ -1,4 +1,5 @@
 import pygame
+import os
 
 pygame.init()
 
@@ -26,12 +27,12 @@ start = True
 prologue = ["어서오세요.", "게임에 참가하게 된 것을 환영합니다.", "방법은 지극히 간단합니다. 어렵지 않아요.", "앞으로 마주할 커다란 갈림길 앞에서…",
             "당신은 하나의 선택을 하게 될 것입니다.", "그리고 그 선택이 서로 다른 이야기를 만들고.", "서로 다른 결말을 낳겠죠.", "……우리 모두가 그렇듯이", "그럼, 출발합시다.", ]
 
-h_img = "C:/Users/cksdn/project/cwLee/img/1st_left_front_img.png"
+h_img = os.path.join(os.getcwd(), 'img', f'1st_left_front_img.png')
 image_human = pygame.image.load(h_img).convert_alpha()
 image_human = pygame.transform.scale(image_human, (200, 200))
 image_human_di = 0
 human_walk_sound = pygame.mixer.Sound(
-    "C:/Users/cksdn/project/cwLee/sound/walksound.mp3")
+    os.path.join(os.getcwd(), 'sound', 'walksound.mp3'))
 
 size_human_width = image_human.get_rect().size[0]
 size_human_height = image_human.get_rect().size[1]
@@ -39,10 +40,10 @@ size_human_height = image_human.get_rect().size[1]
 x_pos_human = background.get_size()[0]/2 - size_human_width/2
 y_pos_human = background.get_size()[1] - size_human_height
 
-door_sound = pygame.mixer.Sound(
-    "C:/Users/cksdn/project/cwLee/sound/doorsound.mp3")
+door_sound = pygame.mixer.Sound(os.path.join(
+    os.getcwd(), 'sound', 'doorsound.mp3'))
 
-w_img = "C:/Users/cksdn/project/cwLee/img/Room1_final.png"
+w_img = os.path.join(os.getcwd(), 'img', f'Room1_final.png')
 image_wall = pygame.image.load(w_img).convert_alpha()
 image_wall = pygame.transform.scale(image_wall, (1000, 768))
 
@@ -53,7 +54,7 @@ x_pos_wall = background.get_size()[0]/2 - size_wall_width/2
 y_pos_wall = background.get_size()[1] - size_wall_height
 
 background_sound = pygame.mixer.music.load(
-    "C:/Users/cksdn/project/cwLee/sound/background.mp3")
+    os.path.join(os.getcwd(), 'sound', 'background.mp3'))
 pygame.mixer.music.set_volume(0.2)
 
 to_x = 0
@@ -114,7 +115,8 @@ while play:
                     game_text("<청년기>")
                     pygame.display.update()
                     pygame.time.delay(1200)
-                    h_img = "C:/Users/cksdn/project/cwLee/img/2nd_left_front_img.png"
+                    h_img = os.path.join(
+                        os.getcwd(), 'img', f'2nd_left_front_img.png')
                     image_human = pygame.image.load(h_img).convert_alpha()
                     image_human = pygame.transform.scale(
                         image_human, (200, 200))
@@ -123,7 +125,8 @@ while play:
                         0]/2 - size_human_width/2
                     y_pos_human = background.get_size()[1] - size_human_height
 
-                    w_img = "C:/Users/cksdn/project/cwLee/img/Room2_final.png"
+                    w_img = os.path.join(
+                        os.getcwd(), 'img', f'Room2_final.png')
                     image_wall = pygame.image.load(w_img).convert_alpha()
                     image_wall = pygame.transform.scale(
                         image_wall, (1000, 768))
