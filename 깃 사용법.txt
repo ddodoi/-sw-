@@ -6,5 +6,14 @@ git commit -m "남길말"
 git push origin main
 
 원격레포지토리에서 다운로드
-
 git pull origin main
+
+깃 브랜치 변경
+git checkout 브랜치이름(ex: main)
+
+깃 브랜치 병합
+git merge 브랜치이름(ex: main)
+
+깃 디폴트 브랜치 변경
+git config --global init.defaultBranch 브랜치이름(ex: main)
+
