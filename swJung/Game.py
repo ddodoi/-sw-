@@ -144,10 +144,14 @@ while Running:
 
 
 # 엔딩 구현 임시용
-#Ending = True
+# Ending = True
 # while Ending:
-#     ch.set_position(background_size[0]//2, background_size[1]//2)
+#     clock.tick(60)
+#     background = pygame.image.load(
+#         os.path.join(Path, 'img', 'ending_background.png'))
 #     screen.fill(color)
+#     screen.blit(background, (0, 0))
+#     ch.set_position(background_size[0]//2, background_size[1]//2)
 #     ch.show(screen)
 
 
