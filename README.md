@@ -10,6 +10,9 @@
 |이찬우|개발자| <a href="https://github.com/cksdn43"><img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=white"/></a> |
 |김도형|스토리 작가, 현황 기록| <a href="https://github.com/dhkim98"><img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=white"/></a> |
   
+<br> 
+  
+</br> 
   
 # :clipboard: 계획
 |주차|날짜|내용|
@@ -20,7 +23,9 @@
 |13주차|5월25일 ~ 5월31일|코드에 그래픽 삽입 & 개발 마무리|
 |14주차|6월1일 ~ 6월7일|디버깅 및 점검 작업|  
 
+<br> 
   
+</br>
   
 # :video_game: 게임소개
 
@@ -31,7 +36,8 @@
  
  + 문앞에서 SPACE키를 눌러 원하는 인생을 선택해보자!  
  
- + 어떤 인생이 우리를 기다리고 있을까?<br> 
+ + 어떤 인생이 우리를 기다리고 있을까?
+<br> 
   
 </br>
 
