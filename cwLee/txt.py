@@ -13,4 +13,4 @@ try:
         tlineNumber = tlineNumber + 1
     tFile.close()
 except:
-    print("파일 존재 않함")
+    print("파일 존재 안함")

@@ -2,10 +2,12 @@ import pygame
 
 pygame.init()
 
-background = pygame.display.set_mode((1000, 768))  # 배경화면 설정 가로: 1000 세로: 768
+background = pygame.display.set_mode((1920, 1080))  # 배경화면 설정 가로: 1000 세로: 768
 pygame.display.set_caption("Prototype")  # 제목
 
 fps = pygame.time.Clock()  # 게임 속도
+
+t = 1000
 
 
 class text_print:
@@ -55,7 +57,8 @@ class text_print:
         size_height_btext = btext.get_rect().size[1]  # 2번 높이
 
         x_pos_atext = background.get_size()[0]/2 - size_width_atext/2  # 1번 x좌표
-        y_pos_atext = background.get_size()[1] - size_height_atext*2  # 1번 y좌표
+        y_pos_atext = background.get_size(
+        )[1]/1.5 + size_height_atext * 2  # 1번 y좌표
         x_pos_btext = background.get_size()[0]/2 - size_width_btext/2  # 2번 x좌표
         y_pos_btext = background.get_size()[1]/4 + size_height_btext  # 2번 y좌표
 
@@ -63,7 +66,7 @@ class text_print:
         background.blit(atext, (x_pos_atext, y_pos_atext))  # 1번 생성(x,y)
         background.blit(btext, (x_pos_btext, y_pos_btext))  # 2번 생성(x,y)
         pygame.display.update()  # 변경사항 화면반영
-    '''
+
     def ed_text(self, a, b, c, d, e, f):
         atext = self.font.render(a, True, (255, 255, 255))  # 1번 문자열, 표면부드럽게, 색
         btext = self.font.render(b, True, (255, 255, 255))  # 2번 문자열, 표면부드럽게, 색
@@ -74,29 +77,27 @@ class text_print:
 
         size_width_atext = atext.get_rect().size[0]  # 1번 크기
         size_height_atext = atext.get_rect().size[1]  # 1번 높이
-        for i in range(11):
-            x_pos_atext = background.get_size(
-            )[0]/2 - size_width_atext  # 1번 x좌표
-            y_pos_atext = background.get_size(
-            )[1]/4 - size_height_atext  # 1번 y좌표
-            x_pos_btext = x_pos_ctext = x_pos_ctext = x_pos_dtext = x_pos_etext = x_pos_ftext = x_pos_atext
-            y_pos_btext = y_pos_atext - (size_width_atext * 2)
-            y_pos_ctext = y_pos_btext - (size_width_atext * 2)
-            y_pos_dtext = y_pos_ctext - (size_width_atext * 2)
-            y_pos_etext = y_pos_dtext - (size_width_atext * 2)
-            y_pos_ftext = y_pos_etext - (size_width_atext * 2)
+        x_pos_atext = background.get_size(
+        )[0]/3 - size_width_atext  # 1번 x좌표
+        y_pos_atext = background.get_size(
+        )[1] - size_height_atext  # 1번 y좌표
+        while y_pos_atext > -1060:
+            y_pos_btext = y_pos_atext + 200
+            y_pos_ctext = y_pos_btext + 200
+            y_pos_dtext = y_pos_ctext + 200
+            y_pos_etext = y_pos_dtext + 200
+            y_pos_ftext = y_pos_etext + 200
 
             background.fill((0, 0, 0))  # 배경화면 검은색
             background.blit(atext, (x_pos_atext, y_pos_atext))  # 1번 생성(x,y)
-            background.blit(btext, (x_pos_btext, y_pos_btext))  # 2번 생성(x,y)
-            background.blit(ctext, (x_pos_ctext, y_pos_ctext))
-            background.blit(dtext, (x_pos_dtext, y_pos_dtext))
-            background.blit(etext, (x_pos_etext, y_pos_etext))
-            background.blit(ftext, (x_pos_ftext, y_pos_ftext))
+            background.blit(btext, (x_pos_atext, y_pos_btext))  # 2번 생성(x,y)
+            background.blit(ctext, (x_pos_atext, y_pos_ctext))
+            background.blit(dtext, (x_pos_atext, y_pos_dtext))
+            background.blit(etext, (x_pos_atext, y_pos_etext))
+            background.blit(ftext, (x_pos_atext, y_pos_ftext))
             pygame.display.update()  # 변경사항 화면반영
-            y_pos_atext += 0.1
-            pygame.time.delay(1000)
-    '''
+            y_pos_atext -= 1
+            pygame.time.delay(10)
 
 
 # 프롤로그 출력 문자열
@@ -135,6 +136,7 @@ epilogue = [["<소년기>-공부", "<청년기>-전공", "<장년기>-일"],
             ["<소년기>-예체능", "<청년기>-연애", "<장년기>-일"],
             ["<소년기>-예체능", "<청년기>-연애", "<장년기>-가족"]]
 
+# 엔딩 문자열
 ending = [["(공부+전공+일 선택)", "어릴 때부터 확고한 관심사를 가졌던 당신은", "자연스레 목표를 이루기 위해 최선을 다했어요.", "그 결과 최고의 자리까지 올라갔지만……", "조금은 쓸쓸한 인생이었을지도 모르겠네요.", "수고했어요."],
           ["(공부+전공+가정 선택)", "어릴 때부터 확고한 관심사를 가졌던 당신은", "청춘을 불사르며 열심히 노력했어요.",
            "하지만 가족의 소중함 역시 깨달은 것 같네요.", "나쁘지 않아요.", "수고했어요."],
@@ -150,26 +152,26 @@ ending = [["(공부+전공+일 선택)", "어릴 때부터 확고한 관심사�
            "나이가 들어선 다시 일에 충실했지만,", "그 청춘의 한 페이지가 어디 가는 것은 아니죠.", " "],
           ["(예체능+사랑+가정 선택)", "주체할 수 없는 끼를 가진 당신은", "그 열정을 연인에게 쏟기로 결심했고,", "나이가 들어서도 사랑하는 사람에겐", " 늘 최선을 다했군요.", "당신의 선택을 존중하고 축복해요."]]
 
-
+# 재시작 문자열
 curtaincall = ["이상입니다.",
                "즐거운 삶이었나요?",
                "부디 그러셨길 바랄게요.",
                "인생에 정답은 없으니까요.",
                "그래도 다시 한번 돌아간다면……",
-               ">다시 도전한다/게임을 끝낸다"]
+               ">다시 도전한다(r)/게임을 끝낸다(esc)"]
 
-level = 0  # 단계 <소년기> = 0, <청년기> = 1, <장년기> = 2, <노년기> = 3
-
+# 분기값
 choice = [[0, 4],  # 공부 = 0, 예체능 = 4
           [-6, -4],  # 전공 = -6, 연애 = -4
           [6, 7]]  # 일 = 6, 가족 = 7
 
-test = text_print()
 ep = 0
 start = True
 key = True
 play = True
+restart = False
 
+test = text_print()
 background.fill((0, 0, 0))
 pygame.display.update()
 
@@ -179,8 +181,9 @@ while play:  # play가 True일동안 출력
         start = False
         for i in prologue:
             test.oneline_text(i)
-            pygame.time.delay(1000)
+            pygame.time.delay(t)
         background.fill((0, 0, 0))
+        level = 0  # 단계 <소년기> = 0, <청년기> = 1, <장년기> = 2, <노년기> = 3
     for event in pygame.event.get():  # 파이게임 이벤트
         if event.type == pygame.QUIT:  # 파이게임을 끄면 종료
             play = False
@@ -194,32 +197,41 @@ while play:  # play가 True일동안 출력
                     ep += choice[level][0]
                     level += 1
                     key = True
-                    pygame.time.delay(1000)  # 1초 대기 (1/1000초)
+                    pygame.time.delay(t)  # 1초 대기 (1/1000초)
             elif event.key == pygame.K_e:  # e를 누르면 왼쪽 분기 선택, 문자열 출력, 단계 상승
                 if level < 3:
                     test.twoline_text(selection_steps[level]
                                       [2], selection_steps[level][3])
                     ep += choice[level][1]
                     level += 1
-                    pygame.time.delay(1000)  # 1초 대기 (1/1000초)
+                    key = True
+                    pygame.time.delay(t)  # 1초 대기 (1/1000초)
+            elif event.key == pygame.K_r:
+                if level > 3:
+                    restart = True
         if level == 3:  # 노년기가 되면 게임 종료
             test.twoline_text("<노년기>", "END")
-            pygame.time.delay(1000)
+            level += 1
+            pygame.time.delay(t)
             for i in range(3):
                 test.ep_text(epilogue[ep][i])
-                pygame.time.delay(1000)
-            '''test.ed_text(ending[ep][0], ending[ep][1],
-                         ending[ep][2], ending[ep][3], ending[ep][4], ending[ep][5])'''
+                pygame.time.delay(t)
+            test.ed_text(ending[ep][0], ending[ep][1],
+                         ending[ep][2], ending[ep][3], ending[ep][4], ending[ep][5])
             for i in curtaincall:
                 test.oneline_text(i)
-                pygame.time.delay(1000)
-            play = False
-            level += 1
+                pygame.time.delay(t)
         elif level < 3 and key:
             test.twoline_text(start_steps[level][0], start_steps[level][1])
-            pygame.time.delay(1000)
+            pygame.time.delay(t)
             test.twoline_text(start_steps[level][2], start_steps[level][3])
-            pygame.time.delay(1000)
+            pygame.time.delay(t)
             key = False
+        if restart:
+            start = True
+            key = True
+            play = True
+            restart = False
+            ep = 0
 
 pygame.quit()  # 파이게임 종료

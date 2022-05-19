@@ -10,6 +10,9 @@
 |이찬우|개발자| <a href="https://github.com/cksdn43"><img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=white"/></a> |
 |김도형|스토리 작가, 현황 기록| <a href="https://github.com/dhkim98"><img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=white"/></a> |
   
+<br> 
+  
+</br> 
   
 # :clipboard: 계획
 |주차|날짜|내용|
@@ -20,19 +23,29 @@
 |13주차|5월25일 ~ 5월31일|코드에 그래픽 삽입 & 개발 마무리|
 |14주차|6월1일 ~ 6월7일|디버깅 및 점검 작업|  
 
+<br> 
   
+</br>
   
 # :video_game: 게임소개
 
-                                      "선택지에 따라 엔딩이 나뉘는 인생게임"
+                                      "선택지에 따라 엔딩이 바뀌는 인생게임"
                    
                    
  + 방향키를 이용해서 캐릭터를 이동해보자!  
  
  + 문앞에서 SPACE키를 눌러 원하는 인생을 선택해보자!  
  
- + 어떤 인생이 우리를 기다리고 있을까?  
+ + 어떤 인생이 우리를 기다리고 있을까?
+<br> 
   
+</br>
+
+## :heavy_exclamation_mark: 스포주의 :heavy_exclamation_mark:
+
+<br> 
+  
+</br>
   
 ## 알고리즘
 
@@ -41,7 +54,7 @@
 ###  ○ 게임 알고리즘
 ![Flowchart](https://user-images.githubusercontent.com/101384306/168875991-a5c446d2-8875-4fa4-b340-b869a8281e3d.jpg)
 
-   
+ 
    
 # :mag_right: 개발현황
 ### <9주차>
