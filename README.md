@@ -31,11 +31,10 @@
  
  + 문앞에서 SPACE키를 눌러 원하는 인생을 선택해보자!  
  
- + 어떤 인생이 우리를 기다리고 있을까?  
+ + 어떤 인생이 우리를 기다리고 있을까?<br> 
   
-<br>
+
 ## :heavy_exclamation_mark: 스포주의 :heavy_exclamation_mark:
-<br>
   
 ## 알고리즘
 
