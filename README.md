@@ -24,15 +24,18 @@
   
 # :video_game: 게임소개
 
-                                      "선택지에 따라 엔딩이 나뉘는 인생게임"
+                                      "선택지에 따라 엔딩이 바뀌는 인생게임"
                    
                    
- + 방향키를 이동해서 캐릭터를 이동해보자!  
+ + 방향키를 이용해서 캐릭터를 이동해보자!  
  
  + 문앞에서 SPACE키를 눌러 원하는 인생을 선택해보자!  
  
  + 어떤 인생이 우리를 기다리고 있을까?  
   
+
+## :heavy_exclamation_mark: 스포주의 :heavy_exclamation_mark:
+
   
 ## 알고리즘
 
@@ -41,7 +44,7 @@
 ###  ○ 게임 알고리즘
 ![Flowchart](https://user-images.githubusercontent.com/101384306/168875991-a5c446d2-8875-4fa4-b340-b869a8281e3d.jpg)
 
-   
+ 
    
 # :mag_right: 개발현황
 ### <9주차>
