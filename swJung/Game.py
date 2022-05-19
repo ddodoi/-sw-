@@ -13,13 +13,14 @@ background_size = (600, 900)  # 화면크기
 screen = pygame.display.set_mode(background_size)  # 화면크기 세팅
 title = 'My Game'
 pygame.display.set_caption(title)  # 제목세팅
+Path = os.getcwd()  # 파일 경로
 
 walk_sound = pygame.mixer.Sound(  # 소리세팅
-    os.path.join(os.getcwd(), 'sound', 'walksound.mp3'))
+    os.path.join(Path, 'sound', 'walksound.mp3'))
 door_sound = pygame.mixer.Sound(
-    os.path.join(os.getcwd(), 'sound', 'doorsound.mp3')
+    os.path.join(Path, 'sound', 'doorsound.mp3')
 )
-bgm = Bgm(os.path.join(os.getcwd(), 'sound', 'background.mp3'))
+bgm = Bgm(os.path.join(Path, 'sound', 'background.mp3'))
 
 # 게임 내 필요한 설정
 clock = pygame.time.Clock()  # 시간 변수 설정
@@ -73,7 +74,7 @@ while Running:
     clock.tick(60)  # while문 반복 1초에 60번 간격으로 설정
     try:
         background = pygame.image.load(
-            os.path.join(os.getcwd(), 'img', f'Room{stage}_final_cg.png'))
+            os.path.join(Path, 'img', f'Room{stage}_final_cg.png'))
     except FileNotFoundError:
         print("ERROR!!")
         break
@@ -140,6 +141,15 @@ while Running:
     screen.blit(background, (0, 0))
     ch.show(screen)  # 캐릭터를 스크린에 표시
     scripts.stage_status(stage-1)
+
+
+# 엔딩 구현 임시용
+#Ending = True
+# while Ending:
+#     ch.set_position(background_size[0]//2, background_size[1]//2)
+#     screen.fill(color)
+#     ch.show(screen)
+
 
 # 게임 종료
 pygame.quit()

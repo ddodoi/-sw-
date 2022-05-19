@@ -13,8 +13,9 @@ white = (255, 255, 255)
 
 class Script:
     def __init__(self):
+        self.Path = os.getcwd()
         self.address = os.path.join(
-            os.getcwd(), 'font', 'DungGeunMo.ttf')
+            self.Path, 'font', 'DungGeunMo.ttf')
 
     def print_prologue(self):
         prologue = ["어서오세요.",
@@ -91,6 +92,9 @@ class Script:
         screen.blit(text, (510, 10))  # 기존 (510,5)
         # 화면 업데이트
         pygame.display.flip()
+
+    def print_ending(self, select):
+        pass
 
 
 if __name__ == '__main__':
