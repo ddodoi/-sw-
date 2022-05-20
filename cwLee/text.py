@@ -7,7 +7,7 @@ pygame.display.set_caption("Prototype")  # 제목
 
 fps = pygame.time.Clock()  # 게임 속도
 
-t = 1000
+t = 1800
 
 
 class text_print:
