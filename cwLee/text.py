@@ -126,6 +126,10 @@ selection_steps = [["<소년기>-공부", "무언가를 배우고 좋은 성적�
                    ["<장년기>-일", "성공으로 보답하는 것만이 최고의 선택이죠.",
                     "<장년기>-가족", "역시 곁에 있어 주는 가족이 최고죠."]]
 
+final_steps = ["수고하셨습니다.",
+               "……슬슬 엔딩이 다가오고 있어요.",
+               "당신은……."]
+
 # 주마등 문자열
 epilogue = [["<소년기>-공부", "<청년기>-전공", "<장년기>-일"],
             ["<소년기>-공부", "<청년기>-전공", "<장년기>-가족"],
@@ -210,7 +214,9 @@ while play:  # play가 True일동안 출력
                 if level > 3:
                     restart = True
         if level == 3:  # 노년기가 되면 게임 종료
-            test.twoline_text("<노년기>", "END")
+            for i in final_steps:
+                test.twoline_text("<노년기>", i)
+                pygame.time.delay(t)
             level += 1
             pygame.time.delay(t)
             for i in range(3):
