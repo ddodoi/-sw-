@@ -4,7 +4,7 @@ pygame.init()
 
 background_size = (600, 900)  # 화면크기
 screen = pygame.display.set_mode(background_size)  # 화면크기 세팅
-title = 'My Game'
+title = 'Life(choice)'
 pygame.display.set_caption(title)  # 제목세팅
 
 Black = (0, 0, 0)
@@ -16,6 +16,8 @@ class Script:
         self.Path = os.getcwd()
         self.address = os.path.join(
             self.Path, 'font', 'DungGeunMo.ttf')
+        self.stage_name = ['<소년기>', '<청년기>',
+                           '<장년기>', '<노년기>']
 
     def print_prologue(self):
         prologue = ["어서오세요.",
@@ -86,19 +88,109 @@ class Script:
         pygame.time.delay(3000)
 
     def stage_status(self, stage):
-        stage_name = ['<소년기>', '<청년기>',
-                      '<장년기>', '<노년기>']
         # 폰트설정
         font = pygame.font.Font(self.address, 20)
         # 폰트를 이미지로 변경
-        text = font.render(f'{stage_name[stage]}', True, white)
+        text = font.render(f'{self.stage_name[stage]}', True, white)
         # 화면에 폰트가 표시되는 위치 설정
         screen.blit(text, (510, 10))  # 기존 (510,5)
         # 화면 업데이트
         pygame.display.flip()
 
-    def print_ending(self, select):
-        pass
+    def ending(self, select):
+        sc_list_1 = ['학구열이 강한 당신은 열심히 공부하여 대학에 진학했고',
+                     '그곳에서 진정한 사랑을 만나 뜨거운 청춘을 보냈군요',
+                     ' 나이가 들어선 다시 일에 열중했지만,',
+                     '그래도 당신은 젊은 날을 추억하며 미소짓고 있네요',
+                     '나이가 들어서도 가정에 충실하며', '좋은부모이자 배우자 였네요.',
+                     '당신의 삶은 분명 꽤 따뜻했겠네요.']
+        sc_list_2 = ['통통 튀는 재능이 있는 당신은',
+                     '청춘을 모두 바쳐 세계적으로 유명한 인재가 되었군요.',
+                     '지금은 당신의 삶을 모두가 우러러보고 있어요.',
+                     '훌륭해요.',
+                     '청춘을 바쳐 그 재능에 충실했지만,',
+                     '나이가 들어선 그 이상으로 가치있는 것을 찾아냈군요.',
+                     '가족의 품 만한 게 또 없죠.'
+                     ]
+        sc_list_3 = ['통통 튀는 재능이 있는 당신은',
+                     '그 열정을 연인에게 쏟기로 결심했어요.',
+                     '나이가 들어선 다시 일에 충실했지만,',
+                     '그 청춘의 한 페이지가 어디 가는 것은 아니죠.',
+                     '나이가 들어서도 사랑하는 사람에겐 늘 최선을 다했군요.',
+                     '당신의 선택을 존중하고 축복해요.'
+                     ]
+        sc_list_4 = ['어릴 때부터 확고한 관심사를 가졌던 당신은',
+                     '청춘을 불사르며 열심히 노력했어요.',
+                     '그 결과 최고의 자리까지 올라갔지만……',
+                     '조금은 쓸쓸한 인생이었을지도 모르겠네요.',
+                     '수고했어요.',
+                     '하지만 가족의 소중함 역시 깨달은 것 같네요.',
+                     '나쁘지 않아요.',
+                     '수고했어요.'
+                     ]
+        sc_list_5 = ['이상입니다.',
+                     '즐거운 삶이었나요?',
+                     '부디 그러셨길 바랄게요.',
+                     '정답은 없으니까요.',
+                     '그래도 다시 한번 돌아간다면…….']
+        if select[0] == 'Study' and select[1] == 'Love':
+            self.print_ending_script(sc_list_1[0])
+            self.print_ending_script(sc_list_1[1])
+            if select[2] == 'Work':
+                self.print_ending_script(sc_list_1[2])
+                self.print_ending_script(sc_list_1[3])
+            elif select[2] == 'Family':
+                self.print_ending_script(sc_list_1[4])
+                self.print_ending_script(sc_list_1[5])
+        elif select[0] == 'Art' and select[1] == 'Major':
+            self.print_ending_script(sc_list_2[0])
+            if select[2] == 'Work':
+                for i in range(1, 4):
+                    self.print_ending_script(sc_list_2[i])
+            elif select[2] == 'Family':
+                for i in range(4, 7):
+                    self.print_ending_script(sc_list_2[i])
+        elif select[0] == 'Art' and select[1] == 'Love':
+            self.print_ending_script(sc_list_3[0])
+            self.print_ending_script(sc_list_3[1])
+            if select[2] == 'Work':
+                self.print_ending_script(sc_list_3[2])
+                self.print_ending_script(sc_list_3[3])
+            elif select[2] == 'Family':
+                self.print_ending_script(sc_list_3[4])
+                self.print_ending_script(sc_list_3[5])
+        else:
+            self.print_ending_script(sc_list_4[0])
+            self.print_ending_script(sc_list_4[1])
+            if select[2] == 'Work':
+                for i in range(2, 5):
+                    self.print_ending_script(sc_list_4[i])
+            elif select[2] == 'Family':
+                for i in range(5, 8):
+                    self.print_ending_script(sc_list_4[i])
+        for endscript in sc_list_5:
+            self.print_ending_script(endscript)
+        self.print_ending_script('다시 도전한다(r) / 게임을 끝낸다(q)')
+
+    def print_ending_script(self, stages):
+        font = pygame.font.Font(self.address, 17)
+        text = font.render(stages, True, white)
+        screen.fill(Black)
+        size_width_text = text.get_rect().size[0]
+        size_height_text = text.get_rect().size[1]
+        x_pos_text = round(screen.get_size()[0]/2 - size_width_text/2)
+        y_pos_text = screen.get_size()[1]/2 - size_height_text
+        screen.blit(text, (x_pos_text, y_pos_text))
+        pygame.display.flip()
+        pygame.time.delay(3000)
+
+    def show_tutorial(self, image):
+        screen.fill(Black)
+        title = pygame.image.load(
+            os.path.join(self.Path, 'img', image))
+        screen.blit(title, (0, 0))
+        pygame.display.flip()
+        pygame.time.delay(5000)
 
 
 if __name__ == '__main__':
