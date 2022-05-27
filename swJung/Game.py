@@ -4,7 +4,7 @@ import os
 from character import Character  # 캐릭터 모듈 import
 from envrionment import Script
 from sounds import Bgm
-DEBUGGING = False  # 디버깅 모드 변수
+DEBUGGING = True  # 디버깅 모드 변수
 # 게임초기화
 pygame.init()
 
@@ -69,6 +69,7 @@ bgm.play_music()
 # main event
 Running = True  # 게임 진행 변수
 Left_watching = True
+Ending = False
 while Running:
     # FPS 설정
     clock.tick(60)  # while문 반복 1초에 60번 간격으로 설정
@@ -78,13 +79,29 @@ while Running:
     except FileNotFoundError:
         print("ERROR!!")
         break
+    if stage == 4:  # 엔딩 임시구현 (자동걷기)
+        Ending = True
+        ch.set_position(45, 670)
+        ch.flip()
+        while Ending:
+            ch.x += movement
+            if ch.x >= 240:
+                ch.x = 240
+            screen.fill(color)
+            screen.blit(background, (0, 0))
+            ch.show(screen)  # 캐릭터를 스크린에 표시
+            scripts.stage_status(stage-1)
+            pygame.time.delay(250)
+            # if ch.x ==240:
+            # 함수에select 리스트를 넘겨주면서 선택지에 따른
+            # 엔딩 출력 구현 예정
     # 입력감지
     for event in pygame.event.get():
         if event.type == pygame.QUIT:  # quit에 대한 명령일 경우 종료
             Running = False
         if event.type == pygame.KEYDOWN:  # key를 눌렀을때
             walk_sound.play(-1)  # 걷는소리 재생
-            time.sleep(0.1)  # 소리 재생 딜레이 방지용 0.1초 움직임 딜레이
+            # time.sleep(0.1)  # 소리 재생 딜레이 방지용 0.1초 움직임 딜레이
             if event.key == pygame.K_LEFT:
                 left_go = True
                 if not Left_watching:
@@ -136,6 +153,7 @@ while Running:
     if DEBUGGING:  # 캐릭터 좌표 디버깅
         print(ch.x, ch.y)
         print(select)
+        print(f'stage : {stage}')
     # 그리기
     screen.fill(color)
     screen.blit(background, (0, 0))
