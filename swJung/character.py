@@ -43,7 +43,7 @@ class Character:
 
     def stage_chage(self):
         self.age += 1
-        if self.age > 4:  # 추후수정
+        if self.age > 4:
             self.age = 1
         self.put_img(os.path.join(self.Path, 'img',
                      f'{self.age}_left_front_img.png'))
