@@ -32,7 +32,8 @@
                                       "선택지에 따라 엔딩이 바뀌는 인생게임"
                    
                    
- + 방향키를 이용해서 캐릭터를 이동해보자!  
+ + 방향키를 이용해서 캐릭터를 이동해보자!  ![walkmotion](https://user-images.githubusercontent.com/101384306/170808526-b7a72b8a-82ae-4fc3-bee9-57c09cf9e194.gif)
+
  
  + 문앞에서 SPACE키를 눌러 원하는 인생을 선택해보자!  
  
