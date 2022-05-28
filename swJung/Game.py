@@ -4,16 +4,16 @@ import os
 from character import Character  # 캐릭터 모듈 import
 from envrionment import Script
 from sounds import Bgm
-DEBUGGING = False  # 디버깅 모드 변수
+DEBUGGING = True  # 디버깅 모드 변수
 # 게임초기화
 pygame.init()
 
 # 게임창 옵션 설정
 background_size = (600, 900)  # 화면크기
 screen = pygame.display.set_mode(background_size)  # 화면크기 세팅
-title = 'My Game'
+title = 'Life(choice)'
 pygame.display.set_caption(title)  # 제목세팅
-Path = os.getcwd()  # 파일 경로
+Path = os.path.dirname(__file__)  # 파일 경로
 
 walk_sound = pygame.mixer.Sound(  # 소리세팅
     os.path.join(Path, 'sound', 'walksound.mp3'))
@@ -21,7 +21,8 @@ door_sound = pygame.mixer.Sound(
     os.path.join(Path, 'sound', 'doorsound.mp3')
 )
 bgm = Bgm(os.path.join(Path, 'sound', 'background.mp3'))
-
+ending_bgm = Bgm(os.path.join(Path, 'sound', 'endingbgm.mp3'))
+beach_bgm = Bgm(os.path.join(Path, 'sound', 'beach.mp3'))
 # 게임 내 필요한 설정
 clock = pygame.time.Clock()  # 시간 변수 설정
 black = (0, 0, 0)
@@ -62,29 +63,69 @@ def door_open(key):
 left_go = right_go = down_go = up_go = False  # 키 입력 변수
 
 movement = 5  # 이동량
-if not DEBUGGING:
-    scripts.print_prologue()
-scripts.enter_script(stage-1)
-bgm.play_music()
 # main event
 Running = True  # 게임 진행 변수
 Left_watching = True
+Ending = False
+Starting = True
 while Running:
     # FPS 설정
     clock.tick(60)  # while문 반복 1초에 60번 간격으로 설정
+    if stage == 1 and Starting:
+        scripts.show_tutorial('Title.png')
+        scripts.print_prologue()
+        scripts.show_tutorial('tutorial_manual.png')
+        scripts.enter_script(stage-1)
+        bgm.play_music()
+        ch.init_position()
+        Starting = False
     try:
         background = pygame.image.load(
             os.path.join(Path, 'img', f'Room{stage}_final_cg.png'))
     except FileNotFoundError:
         print("ERROR!!")
         break
-    # 입력감지
+    if stage == 4:  # 엔딩 임시구현 (자동걷기)
+        bgm.stop_music()
+        ending_bgm.play_music()
+        Ending = True
+        ch.set_position(45, 670)
+        ch.flip()
+        while Ending:
+            ch.x += movement
+            if ch.x >= 240:
+                ch.x = 240
+            screen.fill(color)
+            screen.blit(background, (0, 0))
+            ch.show(screen)  # 캐릭터를 스크린에 표시
+            scripts.stage_status(stage-1)
+            pygame.time.delay(250)
+            if ch.x == 240:
+                pygame.time.delay(2000)
+                scripts.ending(select)
+                pygame.time.delay(6000)
+                for event in pygame.event.get():
+                    if event.type == pygame.KEYDOWN:
+                        if event.key == pygame.K_q:
+                            pygame.quit()
+                        elif event.key == pygame.K_r:
+                            left_go = right_go = down_go = up_go = False
+                            Ending = False
+                            select = []
+                            stage = 1
+                            Starting = True
+                            Left_watching = True
+                            ending_bgm.stop_music()
+                            ch.stage_chage()
+                            # 함수에select 리스트를 넘겨주면서 선택지에 따른
+                            # 엔딩 출력 구현 예정
+                            # 입력감지
     for event in pygame.event.get():
         if event.type == pygame.QUIT:  # quit에 대한 명령일 경우 종료
             Running = False
         if event.type == pygame.KEYDOWN:  # key를 눌렀을때
             walk_sound.play(-1)  # 걷는소리 재생
-            time.sleep(0.1)  # 소리 재생 딜레이 방지용 0.1초 움직임 딜레이
+            # time.sleep(0.1)  # 소리 재생 딜레이 방지용 0.1초 움직임 딜레이
             if event.key == pygame.K_LEFT:
                 left_go = True
                 if not Left_watching:
@@ -136,23 +177,12 @@ while Running:
     if DEBUGGING:  # 캐릭터 좌표 디버깅
         print(ch.x, ch.y)
         print(select)
+        print(f'stage : {stage}')
     # 그리기
     screen.fill(color)
     screen.blit(background, (0, 0))
     ch.show(screen)  # 캐릭터를 스크린에 표시
     scripts.stage_status(stage-1)
-
-
-# 엔딩 구현 임시용
-# Ending = True
-# while Ending:
-#     clock.tick(60)
-#     background = pygame.image.load(
-#         os.path.join(Path, 'img', 'ending_background.png'))
-#     screen.fill(color)
-#     screen.blit(background, (0, 0))
-#     ch.set_position(background_size[0]//2, background_size[1]//2)
-#     ch.show(screen)
 
 
 # 게임 종료
