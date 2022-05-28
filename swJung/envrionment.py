@@ -13,7 +13,7 @@ white = (255, 255, 255)
 
 class Script:
     def __init__(self):
-        self.Path = os.getcwd()
+        self.Path = os.path.dirname(__file__)
         self.address = os.path.join(
             self.Path, 'font', 'DungGeunMo.ttf')
         self.stage_name = ['<소년기>', '<청년기>',

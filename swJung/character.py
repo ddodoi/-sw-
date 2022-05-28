@@ -4,15 +4,15 @@ import os
 
 class Character:
     def __init__(self, size, screen):
-        self.x = self.y = self.move = 0
+        self.x, self.y = 240, 765
         self.age = 1
         self.size = size
         self.screen = screen
-        self.Path = os.getcwd()
+        self.Path = os.path.dirname(__file__)
         self.put_img(os.path.join(self.Path, 'img',
                      f'{self.age}_left_front_img.png'))
         self.change_size(120, 120)  # 초기 캐릭터 크기 설정
-        self.init_position(self.size)  # 초기 위치
+        self.init_position()  # 초기 위치
 
     def put_img(self, address):
         if address[-3:] == "png":  # png 확장자에 대한 설정
@@ -29,9 +29,10 @@ class Character:
     def show(self, screen):
         screen.blit(self.img, (self.x, self.y))
 
-    def init_position(self, size):  # 초기위치 설정
-        self.x = round(size[0]/2-self.sx/2)
-        self.y = size[1]-self.sy-15
+    def init_position(self):  # 초기위치 설정
+        self.x = 240
+        self.y = 765
+        # size[1]-self.sy-15
 
     def flip(self):
         self.img = pygame.transform.flip(
@@ -48,7 +49,7 @@ class Character:
         self.put_img(os.path.join(self.Path, 'img',
                      f'{self.age}_left_front_img.png'))
         self.change_size(120, 120)
-        self.init_position(self.size)
+        self.init_position()
 
 
 if __name__ == '__main__':

@@ -4,7 +4,7 @@ import os
 from character import Character  # 캐릭터 모듈 import
 from envrionment import Script
 from sounds import Bgm
-DEBUGGING = False  # 디버깅 모드 변수
+DEBUGGING = True  # 디버깅 모드 변수
 # 게임초기화
 pygame.init()
 
@@ -13,7 +13,7 @@ background_size = (600, 900)  # 화면크기
 screen = pygame.display.set_mode(background_size)  # 화면크기 세팅
 title = 'Life(choice)'
 pygame.display.set_caption(title)  # 제목세팅
-Path = os.getcwd()  # 파일 경로
+Path = os.path.dirname(__file__)  # 파일 경로
 
 walk_sound = pygame.mixer.Sound(  # 소리세팅
     os.path.join(Path, 'sound', 'walksound.mp3'))
@@ -77,6 +77,7 @@ while Running:
         scripts.show_tutorial('tutorial_manual.png')
         scripts.enter_script(stage-1)
         bgm.play_music()
+        ch.init_position()
         Starting = False
     try:
         background = pygame.image.load(
@@ -102,11 +103,13 @@ while Running:
             if ch.x == 240:
                 pygame.time.delay(2000)
                 scripts.ending(select)
+                pygame.time.delay(6000)
                 for event in pygame.event.get():
                     if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_q:
                             pygame.quit()
                         elif event.key == pygame.K_r:
+                            left_go = right_go = down_go = up_go = False
                             Ending = False
                             select = []
                             stage = 1
@@ -175,7 +178,6 @@ while Running:
         print(ch.x, ch.y)
         print(select)
         print(f'stage : {stage}')
-        print(limit)
     # 그리기
     screen.fill(color)
     screen.blit(background, (0, 0))
