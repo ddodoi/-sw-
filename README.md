@@ -32,7 +32,7 @@
                                       "선택지에 따라 엔딩이 바뀌는 인생게임"
                    
                   
- + 방향키를 이용해서 캐릭터를 이동해보자! <img src="https://user-images.githubusercontent.com/101384306/170808526-b7a72b8a-82ae-4fc3-bee9-57c09cf9e194.gif"  width="100" height="100"/>
+ + 방향키를 이용해서 캐릭터를 이동해보자! <img src="https://user-images.githubusercontent.com/101384306/170808526-b7a72b8a-82ae-4fc3-bee9-57c09cf9e194.gif"  width="150" height="150"/>
  + 문앞에서 SPACE키를 눌러 원하는 인생을 선택해보자!  
  
  + 어떤 인생이 우리를 기다리고 있을까?
