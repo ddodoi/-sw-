@@ -62,6 +62,8 @@ def door_open(key):
 left_go = right_go = down_go = up_go = False  # 키 입력 변수
 
 movement = 5  # 이동량
+walkcount = 0
+
 if not DEBUGGING:
     scripts.print_prologue()
 scripts.enter_script(stage-1)
@@ -83,21 +85,27 @@ while Running:
         if event.type == pygame.QUIT:  # quit에 대한 명령일 경우 종료
             Running = False
         if event.type == pygame.KEYDOWN:  # key를 눌렀을때
-            walk_sound.play(-1)  # 걷는소리 재생
-            time.sleep(0.1)  # 소리 재생 딜레이 방지용 0.1초 움직임 딜레이
+            # time.sleep(0.1)  # 소리 재생 딜레이 방지용 0.1초 움직임 딜레이
+            if event.key == pygame.K_ESCAPE:
+                Running = False
+                print("종료")
             if event.key == pygame.K_LEFT:
+                walk_sound.play(-1)  # 걷는소리 재생
                 left_go = True
                 if not Left_watching:
                     ch.flip()
                     Left_watching = True
             elif event.key == pygame.K_RIGHT:
+                walk_sound.play(-1)  # 걷는소리 재생
                 right_go = True
                 if Left_watching:
                     ch.flip()
                     Left_watching = False
             elif event.key == pygame.K_UP:
+                walk_sound.play(-1)  # 걷는소리 재생
                 up_go = True
             elif event.key == pygame.K_DOWN:
+                walk_sound.play(-1)  # 걷는소리 재생
                 down_go = True
             elif door_dist(ch.x, ch.y) == 'Left' and pygame.K_SPACE:
                 door_open(0)
@@ -133,6 +141,10 @@ while Running:
         ch.y += movement
         if ch.y >= background_size[1]-ch.sy-15:
             ch.y = background_size[1]-ch.sy-15
+
+    if Left_watching == True:
+        walkcount = ch.walk_motion(walkcount)
+
     if DEBUGGING:  # 캐릭터 좌표 디버깅
         print(ch.x, ch.y)
         print(select)

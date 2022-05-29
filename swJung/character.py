@@ -13,6 +13,12 @@ class Character:
                      f'{self.age}_left_front_img.png'))
         self.change_size(120, 120)  # 초기 캐릭터 크기 설정
         self.init_position(self.size)  # 초기 위치
+        self.walk_motion_left = [os.path.join(self.Path, 'img', f'{self.age}_walking_motion1.png'),
+                                 os.path.join(
+                                     self.Path, 'img', f'{self.age}_walking_motion2.png'),
+                                 os.path.join(
+                                     self.Path, 'img', f'{self.age}_walking_motion3.png'),
+                                 os.path.join(self.Path, 'img', f'{self.age}_walking_motion4.png')]
 
     def put_img(self, address):
         if address[-3:] == "png":  # png 확장자에 대한 설정
@@ -37,6 +43,15 @@ class Character:
         self.img = pygame.transform.flip(
             self.img, True, False)
         self.show(self.screen)
+
+    def walk_motion(self, walkcount):
+        if walkcount == 16:
+            walkcount = 0
+
+        self.put_img(self.walk_motion_left[walkcount//4])
+        self.change_size(120, 120)
+        walkcount += 1
+        return walkcount
 
     def set_position(self, x, y):
         self.x, self.y = x, y

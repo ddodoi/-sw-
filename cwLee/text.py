@@ -2,7 +2,7 @@ import pygame
 
 pygame.init()
 
-background = pygame.display.set_mode((1920, 1080))  # 배경화면 설정 가로: 1000 세로: 768
+background = pygame.display.set_mode((500, 500))  # 배경화면 설정 가로: 1000 세로: 768
 pygame.display.set_caption("Prototype")  # 제목
 
 fps = pygame.time.Clock()  # 게임 속도
@@ -174,6 +174,7 @@ start = True
 key = True
 play = True
 restart = False
+keep = True
 
 test = text_print()
 background.fill((0, 0, 0))
@@ -185,7 +186,11 @@ while play:  # play가 True일동안 출력
         start = False
         for i in prologue:
             test.oneline_text(i)
-            pygame.time.delay(t)
+            keep = True
+            while keep:
+                for event in pygame.event.get():
+                    if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+                        keep = False
         background.fill((0, 0, 0))
         level = 0  # 단계 <소년기> = 0, <청년기> = 1, <장년기> = 2, <노년기> = 3
     for event in pygame.event.get():  # 파이게임 이벤트
@@ -201,7 +206,11 @@ while play:  # play가 True일동안 출력
                     ep += choice[level][0]
                     level += 1
                     key = True
-                    pygame.time.delay(t)  # 1초 대기 (1/1000초)
+                keep = True
+                while keep:
+                    for event in pygame.event.get():
+                        if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+                            keep = False
             elif event.key == pygame.K_e:  # e를 누르면 왼쪽 분기 선택, 문자열 출력, 단계 상승
                 if level < 3:
                     test.twoline_text(selection_steps[level]
@@ -209,7 +218,11 @@ while play:  # play가 True일동안 출력
                     ep += choice[level][1]
                     level += 1
                     key = True
-                    pygame.time.delay(t)  # 1초 대기 (1/1000초)
+                keep = True
+                while keep:
+                    for event in pygame.event.get():
+                        if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+                            keep = False
             elif event.key == pygame.K_r:
                 if level > 3:
                     restart = True
@@ -221,23 +234,40 @@ while play:  # play가 True일동안 출력
             pygame.time.delay(t)
             for i in range(3):
                 test.ep_text(epilogue[ep][i])
-                pygame.time.delay(t)
+                keep = True
+                while keep:
+                    for event in pygame.event.get():
+                        if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+                            keep = False
             test.ed_text(ending[ep][0], ending[ep][1],
                          ending[ep][2], ending[ep][3], ending[ep][4], ending[ep][5])
             for i in curtaincall:
                 test.oneline_text(i)
-                pygame.time.delay(t)
+                keep = True
+                while keep:
+                    for event in pygame.event.get():
+                        if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+                            keep = False
         elif level < 3 and key:
             test.twoline_text(start_steps[level][0], start_steps[level][1])
-            pygame.time.delay(t)
+            keep = True
+            while keep:
+                for event in pygame.event.get():
+                    if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+                        keep = False
             test.twoline_text(start_steps[level][2], start_steps[level][3])
-            pygame.time.delay(t)
+            keep = True
+            while keep:
+                for event in pygame.event.get():
+                    if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+                        keep = False
             key = False
         if restart:
             start = True
             key = True
             play = True
             restart = False
+            keep = True
             ep = 0
 
 pygame.quit()  # 파이게임 종료

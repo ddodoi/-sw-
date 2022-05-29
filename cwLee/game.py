@@ -59,6 +59,7 @@ pygame.mixer.music.set_volume(0.2)
 
 to_x = 0
 to_y = 0
+keep = True
 
 play = True
 while play:
@@ -70,7 +71,6 @@ while play:
             background.fill((0, 0, 0))
             game_text(str(i))
             pygame.display.update()
-            pygame.time.delay(1800)
         background.fill((0, 0, 0))
         game_text("<소년기>")
         pygame.mixer.music.play(-1)

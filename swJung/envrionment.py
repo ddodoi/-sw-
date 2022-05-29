@@ -17,6 +17,13 @@ class Script:
         self.address = os.path.join(
             self.Path, 'font', 'DungGeunMo.ttf')
 
+    def pass_over(self):
+        loop = True
+        while loop:
+            for event in pygame.event.get():
+                if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+                    loop = False
+
     def print_prologue(self):
         prologue = ["어서오세요.",
                     "게임에 참가하게 된 것을 환영합니다.",
@@ -36,8 +43,8 @@ class Script:
             x_pos_text = round(screen.get_size()[0]/2 - size_width_text/2)
             y_pos_text = screen.get_size()[1]/2 - size_height_text
             screen.blit(text, (x_pos_text, y_pos_text))
-            pygame.display.flip()
-            pygame.time.delay(3000)
+            pygame.display.update()
+            self.pass_over()
 
     def enter_script(self, stage):
         script_lst = ['', '<소년기>',
@@ -61,8 +68,8 @@ class Script:
                 x_pos_text = round(screen.get_size()[0]/2 - size_width_text/2)
                 y_pos_text = screen.get_size()[1]/2 - size_height_text
                 screen.blit(text, (x_pos_text, y_pos_text))
-                pygame.display.flip()
-                pygame.time.delay(3000)
+                pygame.display.update()
+                self.pass_over()
         except IndexError:
             return None
 
@@ -82,8 +89,8 @@ class Script:
         x_pos_text = round(screen.get_size()[0]/2 - size_width_text/2)
         y_pos_text = screen.get_size()[1]/2 - size_height_text
         screen.blit(text, (x_pos_text, y_pos_text))
-        pygame.display.flip()
-        pygame.time.delay(3000)
+        pygame.display.update()
+        self.pass_over()
 
     def stage_status(self, stage):
         stage_name = ['<소년기>', '<청년기>',
@@ -95,7 +102,7 @@ class Script:
         # 화면에 폰트가 표시되는 위치 설정
         screen.blit(text, (510, 10))  # 기존 (510,5)
         # 화면 업데이트
-        pygame.display.flip()
+        pygame.display.update()
 
     def print_ending(self, select):
         pass
