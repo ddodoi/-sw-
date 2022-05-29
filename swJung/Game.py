@@ -1,5 +1,5 @@
 import pygame
-import time
+import sys
 import os
 from character import Character  # 캐릭터 모듈 import
 from envrionment import Script
@@ -103,20 +103,24 @@ while Running:
             if ch.x == 240:
                 pygame.time.delay(2000)
                 scripts.ending(select)
-                pygame.time.delay(6000)
-                for event in pygame.event.get():
-                    if event.type == pygame.KEYDOWN:
-                        if event.key == pygame.K_q:
-                            pygame.quit()
-                        elif event.key == pygame.K_r:
-                            left_go = right_go = down_go = up_go = False
-                            Ending = False
-                            select = []
-                            stage = 1
-                            Starting = True
-                            Left_watching = True
-                            ending_bgm.stop_music()
-                            ch.stage_chage()
+                Ending_roll = True
+                while Ending_roll:
+                    scripts.print_ending_script('다시 도전한다(r) / 게임을 끝낸다(q)')
+                    for event in pygame.event.get():
+                        if event.type == pygame.KEYDOWN:
+                            if event.key == pygame.K_q:
+                                sys.exit()
+                            elif event.key == pygame.K_r:
+                                left_go = right_go = down_go = up_go = False
+                                Ending = False
+                                select = []
+                                stage = 1
+                                Starting = True
+                                Left_watching = True
+                                ending_bgm.stop_music()
+                                ch.stage_chage()
+                                Ending_roll = False
+                                break
                             # 함수에select 리스트를 넘겨주면서 선택지에 따른
                             # 엔딩 출력 구현 예정
                             # 입력감지

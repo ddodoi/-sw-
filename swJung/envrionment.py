@@ -170,7 +170,6 @@ class Script:
                     self.print_ending_script(sc_list_4[i])
         for endscript in sc_list_5:
             self.print_ending_script(endscript)
-        self.print_ending_script('다시 도전한다(r) / 게임을 끝낸다(q)')
 
     def print_ending_script(self, stages):
         font = pygame.font.Font(self.address, 17)
