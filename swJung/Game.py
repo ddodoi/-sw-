@@ -67,10 +67,10 @@ walkcount = 0
 
 if not DEBUGGING:
     scripts.print_prologue()
-scripts.enter_script(stage-1)
-bgm.play_music()
+    scripts.enter_script(stage-1)
+    bgm.play_music()
 # main event
-Running = True  # 게임 진행 변수
+Running = True  # 게임 진행 변수q
 Left_watching = True
 Ending = False
 Starting = True
@@ -191,7 +191,7 @@ while Running:
         if ch.y >= background_size[1]-ch.sy-15:
             ch.y = background_size[1]-ch.sy-15
 
-    if Left_watching == True:
+    if Left_watching and (left_go or up_go or down_go):
         walkcount = ch.walk_motion(walkcount)
 
     if DEBUGGING:  # 캐릭터 좌표 디버깅
