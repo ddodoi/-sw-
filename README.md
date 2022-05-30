@@ -5,8 +5,8 @@
 |이름|역할|GitHub|
 |------|---|---|
 |홍지나|**팀장**, 디자이너| <a href="https://github.com/ddodoi"><img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=white"/></a> |
-|정성욱|개발자, ppt작성| <a href="https://github.com/oceanstar777"><img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=white"/></a> |
-|윤국희|기획자, 개발자| <a href="https://github.com/cookie-yoon"><img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=white"/></a> |
+|정성욱|개발자| <a href="https://github.com/oceanstar777"><img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=white"/></a> |
+|윤국희|기획자, ppt작성| <a href="https://github.com/cookie-yoon"><img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=white"/></a> |
 |이찬우|개발자| <a href="https://github.com/cksdn43"><img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=white"/></a> |
 |김도형|스토리 작가, 현황 기록| <a href="https://github.com/dhkim98"><img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=white"/></a> |
   
