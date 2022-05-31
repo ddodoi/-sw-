@@ -66,7 +66,7 @@ class Script:
                 pygame.display.flip()
                 pygame.time.delay(3000)
         except IndexError:
-            return None
+            print('Error!!')
 
     def choice_script(self, key):
         script_dct = {'Study': '무언가를 배우고 좋은 성적을 받는 것을 좋아하는군요.',
@@ -134,38 +134,53 @@ class Script:
                      '정답은 없으니까요.',
                      '그래도 다시 한번 돌아간다면…….']
         if select[0] == 'Study' and select[1] == 'Love':
+            self.show_ending_scene('Study')
             self.print_ending_script(sc_list_1[0])
+            self.show_ending_scene('Love')
             self.print_ending_script(sc_list_1[1])
             if select[2] == 'Work':
+                self.show_ending_scene('Work')
                 self.print_ending_script(sc_list_1[2])
                 self.print_ending_script(sc_list_1[3])
             elif select[2] == 'Family':
+                self.show_ending_scene('Family')
                 self.print_ending_script(sc_list_1[4])
                 self.print_ending_script(sc_list_1[5])
         elif select[0] == 'Art' and select[1] == 'Major':
+            self.show_ending_scene('Art')
             self.print_ending_script(sc_list_2[0])
             if select[2] == 'Work':
+                self.show_ending_scene('Work')
                 for i in range(1, 4):
                     self.print_ending_script(sc_list_2[i])
             elif select[2] == 'Family':
+                self.show_ending_scene('Family')
                 for i in range(4, 7):
                     self.print_ending_script(sc_list_2[i])
         elif select[0] == 'Art' and select[1] == 'Love':
+            self.show_ending_scene('Art')
             self.print_ending_script(sc_list_3[0])
+            self.show_ending_scene('Love')
             self.print_ending_script(sc_list_3[1])
             if select[2] == 'Work':
+                self.show_ending_scene('Work')
                 self.print_ending_script(sc_list_3[2])
                 self.print_ending_script(sc_list_3[3])
             elif select[2] == 'Family':
+                self.show_ending_scene('Family')
                 self.print_ending_script(sc_list_3[4])
                 self.print_ending_script(sc_list_3[5])
         else:
+            self.show_ending_scene('Study')
             self.print_ending_script(sc_list_4[0])
+            self.show_ending_scene('Major')
             self.print_ending_script(sc_list_4[1])
             if select[2] == 'Work':
+                self.show_ending_scene('Work')
                 for i in range(2, 5):
                     self.print_ending_script(sc_list_4[i])
             elif select[2] == 'Family':
+                self.show_ending_scene('Family')
                 for i in range(5, 8):
                     self.print_ending_script(sc_list_4[i])
         for endscript in sc_list_5:
@@ -190,6 +205,23 @@ class Script:
         screen.blit(title, (0, 0))
         pygame.display.flip()
         pygame.time.delay(5000)
+
+    def show_ending_scene(self, scene):
+        scene_path = os.path.join(
+            self.Path, 'img', 'ending_scene', f'{scene}.png')
+        scene_img = pygame.image.load(scene_path)
+        scene_img = pygame.transform.scale(scene_img, (400, 400))
+        size_width_img = scene_img.get_rect().size[0]
+        size_height_img = scene_img.get_rect().size[1]
+        x_pos_img = round(screen.get_size()[0]/2 - size_width_img/2)
+        y_pos_img = screen.get_size()[1]/2 - size_height_img+150
+        for opacity in range(255, -1, -1):
+            screen.fill(Black)
+            scene_img.set_alpha(opacity)
+            screen.blit(scene_img, (x_pos_img, y_pos_img))
+            pygame.display.flip()
+            pygame.time.delay(20)
+        pygame.time.delay(1000)
 
 
 if __name__ == '__main__':

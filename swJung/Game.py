@@ -4,7 +4,7 @@ import os
 from character import Character  # 캐릭터 모듈 import
 from envrionment import Script
 from sounds import Bgm
-DEBUGGING = True  # 디버깅 모드 변수
+DEBUGGING = False  # 디버깅 모드 변수
 # 게임초기화
 pygame.init()
 
@@ -22,7 +22,6 @@ door_sound = pygame.mixer.Sound(
 )
 bgm = Bgm(os.path.join(Path, 'sound', 'background.mp3'))
 ending_bgm = Bgm(os.path.join(Path, 'sound', 'endingbgm.mp3'))
-beach_bgm = Bgm(os.path.join(Path, 'sound', 'beach.mp3'))
 # 게임 내 필요한 설정
 clock = pygame.time.Clock()  # 시간 변수 설정
 black = (0, 0, 0)
@@ -30,12 +29,20 @@ white = (255, 255, 255)
 color = black     # 색상설정 RGB
 stage = 1
 
+
 choices = [('Study', 'Art'),
            ('Major', 'Love'),
            ('Work', 'Family')]  # 선택지
 select = []  # 선택지 저장
 ch = Character(background_size, screen)  # 캐릭터 객체 설정
 scripts = Script()  # 스크립트 재생 객체 설정
+
+# For Debug
+
+# if DEBUGGING:
+#     stage = 4
+#     select = ['Study', 'Love', 'Work']
+#     ch.age = 3
 
 
 def door_dist(x, y):  # 문 을 여는 거리
@@ -107,6 +114,8 @@ while Running:
                 while Ending_roll:
                     scripts.print_ending_script('다시 도전한다(r) / 게임을 끝낸다(q)')
                     for event in pygame.event.get():
+                        if event.type == pygame.QUIT:
+                            sys.exit()
                         if event.type == pygame.KEYDOWN:
                             if event.key == pygame.K_q:
                                 sys.exit()
@@ -126,7 +135,7 @@ while Running:
                             # 입력감지
     for event in pygame.event.get():
         if event.type == pygame.QUIT:  # quit에 대한 명령일 경우 종료
-            Running = False
+            sys.exit()
         if event.type == pygame.KEYDOWN:  # key를 눌렀을때
             walk_sound.play(-1)  # 걷는소리 재생
             # time.sleep(0.1)  # 소리 재생 딜레이 방지용 0.1초 움직임 딜레이
