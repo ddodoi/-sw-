@@ -1,12 +1,12 @@
-import pygame
 import sys
 import os
+import pygame
 from character import Character  # 캐릭터 모듈 import
-from envrionment import Script
-from sounds import Bgm
+from envrionment import Script  # 환경 모듈import
+from sounds import Bgm  # 소리모듈 import
+
 DEBUGGING = False  # 디버깅 모드 변수
 Path = os.path.dirname(__file__)  # 파일 경로
-pygame.init()
 
 # 색상설정 RGB
 white = (255, 255, 255)
@@ -14,10 +14,12 @@ Black = (0, 0, 0)
 
 
 # 게임초기화
+pygame.init()
 
-# 게임창 옵션 설정
 background_size = (600, 900)  # 화면크기
 screen = pygame.display.set_mode(background_size)  # 화면크기 세팅
+
+# 게임창 옵션 설정
 title = 'Life(choice)'
 pygame.display.set_caption(title)  # 제목세팅
 
@@ -28,12 +30,12 @@ door_sound = pygame.mixer.Sound(
 )
 bgm = Bgm(os.path.join(Path, 'sound', 'background.mp3'))
 ending_bgm = Bgm(os.path.join(Path, 'sound', 'endingbgm.mp3'))
+
 # 게임 내 필요한 설정
 scripts = Script(Path, screen)  # 스크립트 재생 객체 설정
-clock = pygame.time.Clock()  # 시간 변수 설정
-
-
 ch = Character(background_size, screen, Path)  # 캐릭터 객체 설정
+
+clock = pygame.time.Clock()  # 시간 변수 설정
 
 stage = 1
 choices = [('Study', 'Art'),
@@ -43,7 +45,6 @@ select = []  # 선택지 저장
 
 
 # For Debug
-
 # if DEBUGGING:
 #     stage = 4
 #     select = ['Study', 'Love', 'Work']
@@ -124,6 +125,7 @@ while Running:
                             sys.exit()
                         if event.type == pygame.KEYDOWN:
                             if event.key == pygame.K_q:
+                                pygame.quit()
                                 sys.exit()
                             elif event.key == pygame.K_r:
                                 left_go = right_go = down_go = up_go = False
@@ -137,7 +139,7 @@ while Running:
                                 Ending_roll = False
                                 break
                             # 함수에select 리스트를 넘겨주면서 선택지에 따른
-                            # 엔딩 출력 구현 예정
+                            # 엔딩 출력 구현
                             # 입력감지
     for event in pygame.event.get():
         if event.type == pygame.QUIT:  # quit에 대한 명령일 경우 종료
