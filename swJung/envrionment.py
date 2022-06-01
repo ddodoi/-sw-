@@ -1,23 +1,24 @@
 import pygame
 import os
-pygame.init()
+# pygame.init()
 
-background_size = (600, 900)  # 화면크기
-screen = pygame.display.set_mode(background_size)  # 화면크기 세팅
-title = 'Life(choice)'
-pygame.display.set_caption(title)  # 제목세팅
+# background_size = (600, 900)  # 화면크기
+# screen = pygame.display.set_mode(background_size)  # 화면크기 세팅
+# title = 'Life(choice)'
+# pygame.display.set_caption(title)  # 제목세팅
 
 Black = (0, 0, 0)
 white = (255, 255, 255)
 
 
 class Script:
-    def __init__(self):
-        self.Path = os.path.dirname(__file__)
+    def __init__(self, Path, screen):
+        self.Path = Path
         self.address = os.path.join(
             self.Path, 'font', 'DungGeunMo.ttf')
         self.stage_name = ['<소년기>', '<청년기>',
                            '<장년기>', '<노년기>']
+        self.screen = screen
 
     def print_prologue(self):
         prologue = ["어서오세요.",
@@ -31,13 +32,13 @@ class Script:
                     "그럼, 출발합시다."]
         font = pygame.font.Font(self.address, 17)
         for line in prologue:
-            screen.fill(Black)
+            self.screen.fill(Black)
             text = font.render(line, True, white)
             size_width_text = text.get_rect().size[0]
             size_height_text = text.get_rect().size[1]
-            x_pos_text = round(screen.get_size()[0]/2 - size_width_text/2)
-            y_pos_text = screen.get_size()[1]/2 - size_height_text
-            screen.blit(text, (x_pos_text, y_pos_text))
+            x_pos_text = round(self.screen.get_size()[0]/2 - size_width_text/2)
+            y_pos_text = self.screen.get_size()[1]/2 - size_height_text
+            self.screen.blit(text, (x_pos_text, y_pos_text))
             pygame.display.flip()
             pygame.time.delay(3000)
 
@@ -56,13 +57,14 @@ class Script:
         try:
             font = pygame.font.Font(self.address, 16)
             for i in range(1, 4):
-                screen.fill(Black)
+                self.screen.fill(Black)
                 text = font.render(script_lst[3*stage+i], True, white)
                 size_width_text = text.get_rect().size[0]
                 size_height_text = text.get_rect().size[1]
-                x_pos_text = round(screen.get_size()[0]/2 - size_width_text/2)
-                y_pos_text = screen.get_size()[1]/2 - size_height_text
-                screen.blit(text, (x_pos_text, y_pos_text))
+                x_pos_text = round(self.screen.get_size()[
+                                   0]/2 - size_width_text/2)
+                y_pos_text = self.screen.get_size()[1]/2 - size_height_text
+                self.screen.blit(text, (x_pos_text, y_pos_text))
                 pygame.display.flip()
                 pygame.time.delay(3000)
         except IndexError:
@@ -76,14 +78,14 @@ class Script:
                       'Work': '성공으로 보답하는 것만이 최고의 선택이죠.',
                       'Family': '역시 곁에 있어 주는 가족이 최고죠.'
                       }
-        screen.fill(Black)
+        self.screen.fill(Black)
         font = pygame.font.Font(self.address, 17)
         text = font.render(script_dct[key], True, white)
         size_width_text = text.get_rect().size[0]
         size_height_text = text.get_rect().size[1]
-        x_pos_text = round(screen.get_size()[0]/2 - size_width_text/2)
-        y_pos_text = screen.get_size()[1]/2 - size_height_text
-        screen.blit(text, (x_pos_text, y_pos_text))
+        x_pos_text = round(self.screen.get_size()[0]/2 - size_width_text/2)
+        y_pos_text = self.screen.get_size()[1]/2 - size_height_text
+        self.screen.blit(text, (x_pos_text, y_pos_text))
         pygame.display.flip()
         pygame.time.delay(3000)
 
@@ -93,7 +95,7 @@ class Script:
         # 폰트를 이미지로 변경
         text = font.render(f'{self.stage_name[stage]}', True, white)
         # 화면에 폰트가 표시되는 위치 설정
-        screen.blit(text, (510, 10))  # 기존 (510,5)
+        self.screen.blit(text, (510, 10))  # 기존 (510,5)
         # 화면 업데이트
         pygame.display.flip()
 
@@ -190,20 +192,20 @@ class Script:
     def print_ending_script(self, stages):
         font = pygame.font.Font(self.address, 17)
         text = font.render(stages, True, white)
-        screen.fill(Black)
+        self.screen.fill(Black)
         size_width_text = text.get_rect().size[0]
         size_height_text = text.get_rect().size[1]
-        x_pos_text = round(screen.get_size()[0]/2 - size_width_text/2)
-        y_pos_text = screen.get_size()[1]/2 - size_height_text
-        screen.blit(text, (x_pos_text, y_pos_text))
+        x_pos_text = round(self.screen.get_size()[0]/2 - size_width_text/2)
+        y_pos_text = self.screen.get_size()[1]/2 - size_height_text
+        self.screen.blit(text, (x_pos_text, y_pos_text))
         pygame.display.flip()
         pygame.time.delay(3000)
 
     def show_tutorial(self, image):
-        screen.fill(Black)
+        self.screen.fill(Black)
         title = pygame.image.load(
             os.path.join(self.Path, 'img', image))
-        screen.blit(title, (0, 0))
+        self.screen.blit(title, (0, 0))
         pygame.display.flip()
         pygame.time.delay(5000)
 
@@ -214,12 +216,12 @@ class Script:
         scene_img = pygame.transform.scale(scene_img, (400, 400))
         size_width_img = scene_img.get_rect().size[0]
         size_height_img = scene_img.get_rect().size[1]
-        x_pos_img = round(screen.get_size()[0]/2 - size_width_img/2)
-        y_pos_img = screen.get_size()[1]/2 - size_height_img+150
+        x_pos_img = round(self.screen.get_size()[0]/2 - size_width_img/2)
+        y_pos_img = self.screen.get_size()[1]/2 - size_height_img+150
         for opacity in range(255, -1, -1):
-            screen.fill(Black)
+            self.screen.fill(Black)
             scene_img.set_alpha(opacity)
-            screen.blit(scene_img, (x_pos_img, y_pos_img))
+            self.screen.blit(scene_img, (x_pos_img, y_pos_img))
             pygame.display.flip()
             pygame.time.delay(20)
         pygame.time.delay(1000)

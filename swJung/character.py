@@ -3,12 +3,12 @@ import os
 
 
 class Character:
-    def __init__(self, size, screen):
+    def __init__(self, size, screen, Path):
         self.x, self.y = 240, 765
         self.age = 1
         self.size = size
         self.screen = screen
-        self.Path = os.path.dirname(__file__)
+        self.Path = Path
         self.put_img(os.path.join(self.Path, 'img',
                      f'{self.age}_left_front_img.png'))
         self.change_size(120, 120)  # 초기 캐릭터 크기 설정
