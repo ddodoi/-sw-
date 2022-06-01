@@ -5,6 +5,11 @@ from character import Character  # 캐릭터 모듈 import
 from envrionment import Script
 from sounds import Bgm
 DEBUGGING = False  # 디버깅 모드 변수
+Path = os.path.dirname(__file__)  # 파일 경로
+white = (255, 255, 255)
+black = (0, 0, 0)
+color = black     # 색상설정 RGB
+stage = 1
 # 게임초기화
 pygame.init()
 
@@ -13,7 +18,6 @@ background_size = (600, 900)  # 화면크기
 screen = pygame.display.set_mode(background_size)  # 화면크기 세팅
 title = 'Life(choice)'
 pygame.display.set_caption(title)  # 제목세팅
-Path = os.path.dirname(__file__)  # 파일 경로
 
 walk_sound = pygame.mixer.Sound(  # 소리세팅
     os.path.join(Path, 'sound', 'walksound.mp3'))
@@ -24,10 +28,6 @@ bgm = Bgm(os.path.join(Path, 'sound', 'background.mp3'))
 ending_bgm = Bgm(os.path.join(Path, 'sound', 'endingbgm.mp3'))
 # 게임 내 필요한 설정
 clock = pygame.time.Clock()  # 시간 변수 설정
-black = (0, 0, 0)
-white = (255, 255, 255)
-color = black     # 색상설정 RGB
-stage = 1
 
 
 choices = [('Study', 'Art'),
@@ -172,13 +172,13 @@ while Running:
 
     if left_go:
         ch.x -= movement
-        if ch.x <= 45:
-            ch.x = 45
+        if ch.x <= 40:
+            ch.x = 40
     elif right_go:
         ch.x += movement
         # if ch.x >= background_size[0]-ch.sx:
-        if ch.x >= 435:
-            ch.x = 435
+        if ch.x >= 440:
+            ch.x = 440
     elif up_go:
         ch.y -= movement
         if ch.y <= 430:

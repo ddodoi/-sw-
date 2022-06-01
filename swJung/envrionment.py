@@ -149,6 +149,7 @@ class Script:
         elif select[0] == 'Art' and select[1] == 'Major':
             self.show_ending_scene('Art')
             self.print_ending_script(sc_list_2[0])
+            self.show_ending_scene('Major')
             if select[2] == 'Work':
                 self.show_ending_scene('Work')
                 for i in range(1, 4):
