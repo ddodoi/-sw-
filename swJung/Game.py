@@ -6,12 +6,14 @@ from envrionment import Script
 from sounds import Bgm
 DEBUGGING = False  # 디버깅 모드 변수
 Path = os.path.dirname(__file__)  # 파일 경로
-white = (255, 255, 255)
-black = (0, 0, 0)
-color = black     # 색상설정 RGB
-stage = 1
-# 게임초기화
 pygame.init()
+
+# 색상설정 RGB
+white = (255, 255, 255)
+Black = (0, 0, 0)
+
+
+# 게임초기화
 
 # 게임창 옵션 설정
 background_size = (600, 900)  # 화면크기
@@ -27,15 +29,18 @@ door_sound = pygame.mixer.Sound(
 bgm = Bgm(os.path.join(Path, 'sound', 'background.mp3'))
 ending_bgm = Bgm(os.path.join(Path, 'sound', 'endingbgm.mp3'))
 # 게임 내 필요한 설정
+scripts = Script(Path, screen)  # 스크립트 재생 객체 설정
 clock = pygame.time.Clock()  # 시간 변수 설정
 
 
+ch = Character(background_size, screen, Path)  # 캐릭터 객체 설정
+
+stage = 1
 choices = [('Study', 'Art'),
            ('Major', 'Love'),
            ('Work', 'Family')]  # 선택지
 select = []  # 선택지 저장
-ch = Character(background_size, screen)  # 캐릭터 객체 설정
-scripts = Script()  # 스크립트 재생 객체 설정
+
 
 # For Debug
 
@@ -102,7 +107,7 @@ while Running:
             ch.x += movement
             if ch.x >= 240:
                 ch.x = 240
-            screen.fill(color)
+            screen.fill(Black)
             screen.blit(background, (0, 0))
             ch.show(screen)  # 캐릭터를 스크린에 표시
             scripts.stage_status(stage-1)
@@ -115,6 +120,7 @@ while Running:
                     scripts.print_ending_script('다시 도전한다(r) / 게임을 끝낸다(q)')
                     for event in pygame.event.get():
                         if event.type == pygame.QUIT:
+                            pygame.quit()
                             sys.exit()
                         if event.type == pygame.KEYDOWN:
                             if event.key == pygame.K_q:
@@ -135,10 +141,10 @@ while Running:
                             # 입력감지
     for event in pygame.event.get():
         if event.type == pygame.QUIT:  # quit에 대한 명령일 경우 종료
+            pygame.quit()
             sys.exit()
         if event.type == pygame.KEYDOWN:  # key를 눌렀을때
             walk_sound.play(-1)  # 걷는소리 재생
-            # time.sleep(0.1)  # 소리 재생 딜레이 방지용 0.1초 움직임 딜레이
             if event.key == pygame.K_LEFT:
                 left_go = True
                 if not Left_watching:
@@ -192,7 +198,7 @@ while Running:
         print(select)
         print(f'stage : {stage}')
     # 그리기
-    screen.fill(color)
+    screen.fill(Black)
     screen.blit(background, (0, 0))
     ch.show(screen)  # 캐릭터를 스크린에 표시
     scripts.stage_status(stage-1)
