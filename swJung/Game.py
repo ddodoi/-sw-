@@ -1,19 +1,27 @@
-import pygame
 import sys
 import os
+import pygame
 from character import Character  # 캐릭터 모듈 import
-from envrionment import Script
-from sounds import Bgm
-DEBUGGING = True  # 디버깅 모드 변수
+from envrionment import Script  # 환경 모듈import
+from sounds import Bgm  # 소리모듈 import
+
+DEBUGGING = False  # 디버깅 모드 변수
+Path = os.path.dirname(__file__)  # 파일 경로
+
+# 색상설정 RGB
+white = (255, 255, 255)
+Black = (0, 0, 0)
+
+
 # 게임초기화
 pygame.init()
 
-# 게임창 옵션 설정
 background_size = (600, 900)  # 화면크기
 screen = pygame.display.set_mode(background_size)  # 화면크기 세팅
+
+# 게임창 옵션 설정
 title = 'Life(choice)'
 pygame.display.set_caption(title)  # 제목세팅
-Path = os.path.dirname(__file__)  # 파일 경로
 
 walk_sound = pygame.mixer.Sound(  # 소리세팅
     os.path.join(Path, 'sound', 'walksound.mp3'))
@@ -22,20 +30,25 @@ door_sound = pygame.mixer.Sound(
 )
 bgm = Bgm(os.path.join(Path, 'sound', 'background.mp3'))
 ending_bgm = Bgm(os.path.join(Path, 'sound', 'endingbgm.mp3'))
-beach_bgm = Bgm(os.path.join(Path, 'sound', 'beach.mp3'))
-# 게임 내 필요한 설정
-clock = pygame.time.Clock()  # 시간 변수 설정
-black = (0, 0, 0)
-white = (255, 255, 255)
-color = black     # 색상설정 RGB
-stage = 1
 
+# 게임 내 필요한 설정
+scripts = Script(Path, screen)  # 스크립트 재생 객체 설정
+ch = Character(background_size, screen, Path)  # 캐릭터 객체 설정
+
+clock = pygame.time.Clock()  # 시간 변수 설정
+
+stage = 1
 choices = [('Study', 'Art'),
            ('Major', 'Love'),
            ('Work', 'Family')]  # 선택지
 select = []  # 선택지 저장
-ch = Character(background_size, screen)  # 캐릭터 객체 설정
-scripts = Script()  # 스크립트 재생 객체 설정
+
+
+# For Debug
+# if DEBUGGING:
+#     stage = 4
+#     select = ['Study', 'Love', 'Work']
+#     ch.age = 3
 
 
 def door_dist(x, y):  # 문 을 여는 거리
@@ -95,7 +108,7 @@ while Running:
             ch.x += movement
             if ch.x >= 240:
                 ch.x = 240
-            screen.fill(color)
+            screen.fill(Black)
             screen.blit(background, (0, 0))
             ch.show(screen)  # 캐릭터를 스크린에 표시
             scripts.stage_status(stage-1)
@@ -107,8 +120,12 @@ while Running:
                 while Ending_roll:
                     scripts.print_ending_script('다시 도전한다(r) / 게임을 끝낸다(q)')
                     for event in pygame.event.get():
+                        if event.type == pygame.QUIT:
+                            pygame.quit()
+                            sys.exit()
                         if event.type == pygame.KEYDOWN:
                             if event.key == pygame.K_q:
+                                pygame.quit()
                                 sys.exit()
                             elif event.key == pygame.K_r:
                                 left_go = right_go = down_go = up_go = False
@@ -122,14 +139,14 @@ while Running:
                                 Ending_roll = False
                                 break
                             # 함수에select 리스트를 넘겨주면서 선택지에 따른
-                            # 엔딩 출력 구현 예정
+                            # 엔딩 출력 구현
                             # 입력감지
     for event in pygame.event.get():
         if event.type == pygame.QUIT:  # quit에 대한 명령일 경우 종료
-            Running = False
+            pygame.quit()
+            sys.exit()
         if event.type == pygame.KEYDOWN:  # key를 눌렀을때
             walk_sound.play(-1)  # 걷는소리 재생
-            # time.sleep(0.1)  # 소리 재생 딜레이 방지용 0.1초 움직임 딜레이
             if event.key == pygame.K_LEFT:
                 left_go = True
                 if not Left_watching:
@@ -163,13 +180,13 @@ while Running:
 
     if left_go:
         ch.x -= movement
-        if ch.x <= 45:
-            ch.x = 45
+        if ch.x <= 40:
+            ch.x = 40
     elif right_go:
         ch.x += movement
         # if ch.x >= background_size[0]-ch.sx:
-        if ch.x >= 435:
-            ch.x = 435
+        if ch.x >= 440:
+            ch.x = 440
     elif up_go:
         ch.y -= movement
         if ch.y <= 430:
@@ -183,7 +200,7 @@ while Running:
         print(select)
         print(f'stage : {stage}')
     # 그리기
-    screen.fill(color)
+    screen.fill(Black)
     screen.blit(background, (0, 0))
     ch.show(screen)  # 캐릭터를 스크린에 표시
     scripts.stage_status(stage-1)
