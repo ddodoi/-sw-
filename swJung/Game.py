@@ -60,7 +60,7 @@ def door_dist(x, y):  # 문 을 여는 거리
 
 
 def door_open(key):
-    global stage, Left_watching
+    global stage, Left_watching, left_go, right_go, up_go
     bgm.pause_music()
     door_sound.play()
     walk_sound.stop()
@@ -71,16 +71,26 @@ def door_open(key):
     ch.stage_chage()
     bgm.unpause_music()
     Left_watching = True
+    left_go = right_go = down_go = up_go = False
 
 
 left_go = right_go = down_go = up_go = False  # 키 입력 변수
 
 movement = 5  # 이동량
+walkcount = 0
+'''
+if not DEBUGGING:
+    scripts.print_prologue()
+    scripts.enter_script(stage-1)
+    bgm.play_music()
+'''
 # main event
-Running = True  # 게임 진행 변수
+Running = True  # 게임 진행 변수q
 Left_watching = True
+stop_ck = True
 Ending = False
 Starting = True
+
 while Running:
     # FPS 설정
     clock.tick(60)  # while문 반복 1초에 60번 간격으로 설정
@@ -106,14 +116,20 @@ while Running:
         ch.flip()
         while Ending:
             ch.x += movement
+            Left_watching = False
+            stop_ck = False
             if ch.x >= 240:
                 ch.x = 240
+                ch.y -= movement
+                if ch.y <= 700:
+                    ch.y = 700
             screen.fill(Black)
             screen.blit(background, (0, 0))
+            walkcount = ch.walk(walkcount, Left_watching, stop_ck)
             ch.show(screen)  # 캐릭터를 스크린에 표시
             scripts.stage_status(stage-1)
             pygame.time.delay(250)
-            if ch.x == 240:
+            if ch.y == 700:
                 pygame.time.delay(2000)
                 scripts.ending(select)
                 Ending_roll = True
@@ -146,21 +162,29 @@ while Running:
             pygame.quit()
             sys.exit()
         if event.type == pygame.KEYDOWN:  # key를 눌렀을때
-            walk_sound.play(-1)  # 걷는소리 재생
+            # time.sleep(0.1)  # 소리 재생 딜레이 방지용 0.1초 움직임 딜레이
+            if event.key == pygame.K_ESCAPE:
+                Running = False
             if event.key == pygame.K_LEFT:
+                walk_sound.play(-1)  # 걷는소리 재생
                 left_go = True
+                stop_ck = False
                 if not Left_watching:
-                    ch.flip()
                     Left_watching = True
             elif event.key == pygame.K_RIGHT:
+                walk_sound.play(-1)  # 걷는소리 재생
                 right_go = True
+                stop_ck = False
                 if Left_watching:
-                    ch.flip()
                     Left_watching = False
             elif event.key == pygame.K_UP:
+                walk_sound.play(-1)  # 걷는소리 재생
                 up_go = True
+                stop_ck = False
             elif event.key == pygame.K_DOWN:
+                walk_sound.play(-1)  # 걷는소리 재생
                 down_go = True
+                stop_ck = False
             elif door_dist(ch.x, ch.y) == 'Left' and pygame.K_SPACE:
                 door_open(0)
             elif door_dist(ch.x, ch.y) == 'Right' and pygame.K_SPACE:
@@ -168,13 +192,17 @@ while Running:
         elif event.type == pygame.KEYUP:  # key를 뗐을때
             walk_sound.fadeout(450)
             if event.key == pygame.K_LEFT:
-                left_go = False
+                left_go = right_go = down_go = up_go = False
+                stop_ck = True
             elif event.key == pygame.K_RIGHT:
-                right_go = False
+                left_go = right_go = down_go = up_go = False
+                stop_ck = True
             elif event.key == pygame.K_UP:
-                up_go = False
+                left_go = right_go = down_go = up_go = False
+                stop_ck = True
             elif event.key == pygame.K_DOWN:
-                down_go = False
+                left_go = right_go = down_go = up_go = False
+                stop_ck = True
 
     # 입력, 시간에 따른변화
 
@@ -195,7 +223,10 @@ while Running:
         ch.y += movement
         if ch.y >= background_size[1]-ch.sy-15:
             ch.y = background_size[1]-ch.sy-15
-    if DEBUGGING:  # 캐릭터 좌표 디버깅
+    if stage != 4:
+        walkcount = ch.walk(walkcount, Left_watching, stop_ck)
+
+    if not DEBUGGING:  # 캐릭터 좌표 디버깅
         print(ch.x, ch.y)
         print(select)
         print(f'stage : {stage}')

@@ -20,6 +20,14 @@ class Script:
                            '<장년기>', '<노년기>']
         self.screen = screen
 
+    def pass_over(self):
+        loop = True
+        while loop:
+            for event in pygame.event.get():
+                if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+                    loop = False
+        pygame.time.delay(1000)
+
     def print_prologue(self):
         prologue = ["어서오세요.",
                     "게임에 참가하게 된 것을 환영합니다.",
@@ -97,7 +105,7 @@ class Script:
         # 화면에 폰트가 표시되는 위치 설정
         self.screen.blit(text, (510, 10))  # 기존 (510,5)
         # 화면 업데이트
-        pygame.display.flip()
+        pygame.display.update()
 
     def ending(self, select):
         sc_list_1 = ['학구열이 강한 당신은 열심히 공부하여 대학에 진학했고',
@@ -199,7 +207,6 @@ class Script:
         y_pos_text = self.screen.get_size()[1]/2 - size_height_text
         self.screen.blit(text, (x_pos_text, y_pos_text))
         pygame.display.flip()
-        pygame.time.delay(3000)
 
     def show_tutorial(self, image):
         self.screen.fill(Black)
@@ -207,7 +214,7 @@ class Script:
             os.path.join(self.Path, 'img', image))
         self.screen.blit(title, (0, 0))
         pygame.display.flip()
-        pygame.time.delay(5000)
+        self.pass_over()
 
     def show_ending_scene(self, scene):
         scene_path = os.path.join(

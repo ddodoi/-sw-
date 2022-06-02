@@ -13,6 +13,32 @@ class Character:
                      f'{self.age}_left_front_img.png'))
         self.change_size(120, 120)  # 초기 캐릭터 크기 설정
         self.init_position()  # 초기 위치
+        self.walking_motion = [[os.path.join(self.Path, 'img', f'1_walking_motion1.png'),
+                                os.path.join(self.Path, 'img',
+                                             f'1_walking_motion2.png'),
+                                os.path.join(self.Path, 'img',
+                                             f'1_walking_motion3.png'),
+                                os.path.join(self.Path, 'img', f'1_walking_motion4.png')],
+                               [os.path.join(self.Path, 'img', f'2_walking_motion1.png'),
+                                os.path.join(self.Path, 'img',
+                                             f'2_walking_motion2.png'),
+                                os.path.join(self.Path, 'img',
+                                             f'2_walking_motion3.png'),
+                                os.path.join(self.Path, 'img', f'2_walking_motion4.png'), ],
+                               [os.path.join(self.Path, 'img', f'3_walking_motion1.png'),
+                                os.path.join(self.Path, 'img',
+                                             f'3_walking_motion2.png'),
+                                os.path.join(self.Path, 'img',
+                                             f'3_walking_motion3.png'),
+                                os.path.join(self.Path, 'img',
+                                             f'3_walking_motion4.png'),
+                                ],
+                               [os.path.join(self.Path, 'img', f'4_walking_motion1.png'),
+                               os.path.join(self.Path, 'img',
+                                            f'4_walking_motion2.png'),
+                               os.path.join(self.Path, 'img',
+                                            f'4_walking_motion3.png'),
+                               os.path.join(self.Path, 'img', f'4_walking_motion4.png'), ]]  # 걷는 모션 주소
 
     def put_img(self, address):
         if address[-3:] == "png":  # png 확장자에 대한 설정
@@ -38,6 +64,27 @@ class Character:
         self.img = pygame.transform.flip(
             self.img, True, False)
         self.show(self.screen)
+
+    def walk(self, walkcount, turn, stop):  # 걷는 모션
+        walkcount_max = 28
+        walk_speed = walkcount_max // 4
+        if walkcount == walkcount_max:
+            walkcount = 0
+
+        if not stop:
+            self.put_img(
+                self.walking_motion[self.age-1][walkcount // walk_speed])
+            self.change_size(120, 120)
+            if not turn:
+                self.flip()
+            walkcount += 1
+        if stop:
+            self.put_img(self.walking_motion[self.age-1][3])
+            self.change_size(120, 120)
+            walkcount = 0
+            if not turn:
+                self.flip()
+        return walkcount
 
     def set_position(self, x, y):
         self.x, self.y = x, y
