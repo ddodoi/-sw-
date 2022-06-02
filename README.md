@@ -5,8 +5,8 @@
 |이름|역할|GitHub|
 |------|---|---|
 |홍지나|**팀장**, 디자이너| <a href="https://github.com/ddodoi"><img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=white"/></a> |
-|정성욱|개발자, ppt작성| <a href="https://github.com/oceanstar777"><img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=white"/></a> |
-|윤국희|기획자, 개발자| <a href="https://github.com/cookie-yoon"><img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=white"/></a> |
+|정성욱|개발자| <a href="https://github.com/oceanstar777"><img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=white"/></a> |
+|윤국희|기획자, ppt작성| <a href="https://github.com/cookie-yoon"><img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=white"/></a> |
 |이찬우|개발자| <a href="https://github.com/cksdn43"><img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=white"/></a> |
 |김도형|스토리 작가, 현황 기록| <a href="https://github.com/dhkim98"><img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=white"/></a> |
   
@@ -31,23 +31,18 @@
 
                                                 " Life(choice) "
                                                 
+                                                
                                       "선택지에 따라 엔딩이 바뀌는 인생게임"
                    
                   
  + 방향키를 이용해서 캐릭터를 이동해보자! <img src="https://user-images.githubusercontent.com/101384306/170808526-b7a72b8a-82ae-4fc3-bee9-57c09cf9e194.gif"  width="150" height="150"/>
- + 문앞에서 SPACE키를 눌러 원하는 인생을 선택해보자!  
- 
+ + 문앞에서 SPACE키를 눌러 원하는 인생을 선택해보자! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://user-images.githubusercontent.com/101384306/170940793-9e18a75c-b10f-4c6d-a813-361c1e3eab88.png" align="center" height="200px" width="200px">                                                                                                        
  + 어떤 인생이 우리를 기다리고 있을까?
-<br> 
-  
-</br>
-
-## :heavy_exclamation_mark: 스포주의 :heavy_exclamation_mark:
 
 <br> 
   
 </br>
-  
+
 ## 알고리즘
 
 ###  ○ 이동 알고리즘 
