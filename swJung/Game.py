@@ -47,7 +47,7 @@ def door_dist(x, y):  # 문 을 여는 거리
 
 
 def door_open(key):
-    global stage, Left_watching
+    global stage, Left_watching, left_go, right_go, up_go
     bgm.pause_music()
     door_sound.play()
     walk_sound.stop()
@@ -58,6 +58,7 @@ def door_open(key):
     ch.stage_chage()
     bgm.unpause_music()
     Left_watching = True
+    left_go = right_go = up_go = False
 
 
 left_go = right_go = down_go = up_go = False  # 키 입력 변수
@@ -194,7 +195,7 @@ while Running:
     if Left_watching and (left_go or up_go or down_go):
         walkcount = ch.walk_motion(walkcount)
 
-    if DEBUGGING:  # 캐릭터 좌표 디버깅
+    if not DEBUGGING:  # 캐릭터 좌표 디버깅
         print(ch.x, ch.y)
         print(select)
         print(f'stage : {stage}')

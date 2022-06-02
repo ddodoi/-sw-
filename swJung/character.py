@@ -18,7 +18,7 @@ class Character:
                                      self.Path, 'img', f'{self.age}_walking_motion2.png'),
                                  os.path.join(
                                      self.Path, 'img', f'{self.age}_walking_motion3.png'),
-                                 os.path.join(self.Path, 'img', f'{self.age}_walking_motion4.png')]
+                                 os.path.join(self.Path, 'img', f'{self.age}_walking_motion4.png')]  # 걷는 모션 주소
 
     def put_img(self, address):
         if address[-3:] == "png":  # png 확장자에 대한 설정
@@ -45,11 +45,13 @@ class Character:
             self.img, True, False)
         self.show(self.screen)
 
-    def walk_motion(self, walkcount):
-        if walkcount == 16:
+    def walk_motion(self, walkcount):  # 걷는 모션
+        walkcount_max = 4 
+
+        if walkcount == walkcount_max:
             walkcount = 0
 
-        self.put_img(self.walk_motion_left[walkcount//4])
+        self.put_img(self.walk_motion_left[walkcount%4])
         self.change_size(120, 120)
         walkcount += 1
         return walkcount
