@@ -5,7 +5,7 @@ from character import Character  # 캐릭터 모듈 import
 from envrionment import Script  # 환경 모듈import
 from sounds import Bgm  # 소리모듈 import
 
-DEBUGGING = False  # 디버깅 모드 변수
+DEBUGGING = True  # 디버깅 모드 변수
 Path = os.path.dirname(__file__)  # 파일 경로
 
 # 색상설정 RGB
@@ -115,21 +115,21 @@ while Running:
         ch.set_position(45, 670)
         ch.flip()
         while Ending:
-            ch.x += movement
+            ch.x += 4
             Left_watching = False
             stop_ck = False
             if ch.x >= 240:
                 ch.x = 240
-                ch.y -= movement
-                if ch.y <= 700:
-                    ch.y = 700
+                ch.y -= 4
+                if ch.y >= 745:
+                    ch.y = 745
             screen.fill(Black)
             screen.blit(background, (0, 0))
             walkcount = ch.walk(walkcount, Left_watching, stop_ck)
             ch.show(screen)  # 캐릭터를 스크린에 표시
             scripts.stage_status(stage-1)
             pygame.time.delay(250)
-            if ch.y == 700:
+            if ch.y == 745:
                 pygame.time.delay(2000)
                 scripts.ending(select)
                 Ending_roll = True
