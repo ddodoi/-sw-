@@ -19,14 +19,25 @@ class Script:
         self.stage_name = ['<소년기>', '<청년기>',
                            '<장년기>', '<노년기>']
         self.screen = screen
+        self.count = 0
 
     def pass_over(self):
         loop = True
+        self.count += 1
+        color = Black
         while loop:
+            if self.count != 11:
+                if color == white:
+                    color = Black
+                else:
+                    color = white
+                pygame.draw.polygon(self.screen, color, [
+                                    [300, 500], [308, 488], [292, 488]])
+                pygame.display.update()
+                pygame.time.delay(400)
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
                     loop = False
-        pygame.time.delay(1000)
 
     def print_prologue(self):
         prologue = ["어서오세요.",
@@ -48,7 +59,7 @@ class Script:
             y_pos_text = self.screen.get_size()[1]/2 - size_height_text
             self.screen.blit(text, (x_pos_text, y_pos_text))
             pygame.display.flip()
-            pygame.time.delay(3000)
+            self.pass_over()
 
     def enter_script(self, stage):
         script_lst = ['', '<소년기>',
@@ -74,7 +85,7 @@ class Script:
                 y_pos_text = self.screen.get_size()[1]/2 - size_height_text
                 self.screen.blit(text, (x_pos_text, y_pos_text))
                 pygame.display.flip()
-                pygame.time.delay(3000)
+                self.pass_over()
         except IndexError:
             print('Error!!')
 
@@ -95,7 +106,7 @@ class Script:
         y_pos_text = self.screen.get_size()[1]/2 - size_height_text
         self.screen.blit(text, (x_pos_text, y_pos_text))
         pygame.display.flip()
-        pygame.time.delay(3000)
+        self.pass_over()
 
     def stage_status(self, stage):
         # 폰트설정

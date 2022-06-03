@@ -25,6 +25,7 @@ pygame.display.set_caption(title)  # 제목세팅
 
 walk_sound = pygame.mixer.Sound(  # 소리세팅
     os.path.join(Path, 'sound', 'walksound.mp3'))
+walk_sound.set_volume(0.3)
 door_sound = pygame.mixer.Sound(
     os.path.join(Path, 'sound', 'doorsound.mp3')
 )
@@ -60,7 +61,7 @@ def door_dist(x, y):  # 문 을 여는 거리
 
 
 def door_open(key):
-    global stage, Left_watching, left_go, right_go, up_go
+    global stage, Left_watching, left_go, right_go, down_go, up_go
     bgm.pause_music()
     door_sound.play()
     walk_sound.stop()
@@ -78,16 +79,17 @@ left_go = right_go = down_go = up_go = False  # 키 입력 변수
 
 movement = 5  # 이동량
 walkcount = 0
-'''
+
 if not DEBUGGING:
     scripts.print_prologue()
     scripts.enter_script(stage-1)
     bgm.play_music()
-'''
+
 # main event
 Running = True  # 게임 진행 변수q
 Left_watching = True
 stop_ck = True
+walkcount_max = 20
 Ending = False
 Starting = True
 
@@ -115,21 +117,23 @@ while Running:
         ch.set_position(45, 670)
         ch.flip()
         while Ending:
-            ch.x += 4
+            ch.x += 5
             Left_watching = False
             stop_ck = False
             if ch.x >= 240:
                 ch.x = 240
-                ch.y -= 4
-                if ch.y >= 745:
-                    ch.y = 745
+                ch.y -= 5
+                if ch.y <= 595:
+                    ch.y = 595
             screen.fill(Black)
             screen.blit(background, (0, 0))
-            walkcount = ch.walk(walkcount, Left_watching, stop_ck)
+            walkcount_max = 4
+            walkcount = ch.walk(walkcount, Left_watching,
+                                stop_ck, walkcount_max)
             ch.show(screen)  # 캐릭터를 스크린에 표시
             scripts.stage_status(stage-1)
             pygame.time.delay(250)
-            if ch.y == 745:
+            if ch.y == 595:
                 pygame.time.delay(2000)
                 scripts.ending(select)
                 Ending_roll = True
@@ -153,6 +157,7 @@ while Running:
                                 ending_bgm.stop_music()
                                 ch.stage_chage()
                                 Ending_roll = False
+                                walkcount_max = 20
                                 break
                             # 함수에select 리스트를 넘겨주면서 선택지에 따른
                             # 엔딩 출력 구현
@@ -163,47 +168,36 @@ while Running:
             sys.exit()
         if event.type == pygame.KEYDOWN:  # key를 눌렀을때
             # time.sleep(0.1)  # 소리 재생 딜레이 방지용 0.1초 움직임 딜레이
-            if event.key == pygame.K_ESCAPE:
-                Running = False
             if event.key == pygame.K_LEFT:
-                walk_sound.play(-1)  # 걷는소리 재생
                 left_go = True
-                stop_ck = False
                 if not Left_watching:
                     Left_watching = True
-            elif event.key == pygame.K_RIGHT:
-                walk_sound.play(-1)  # 걷는소리 재생
-                right_go = True
                 stop_ck = False
+                walk_sound.play(-1)  # 걷는소리 재생
+            elif event.key == pygame.K_RIGHT:
+                right_go = True
                 if Left_watching:
                     Left_watching = False
-            elif event.key == pygame.K_UP:
+                stop_ck = False
                 walk_sound.play(-1)  # 걷는소리 재생
+            elif event.key == pygame.K_UP:
                 up_go = True
                 stop_ck = False
-            elif event.key == pygame.K_DOWN:
                 walk_sound.play(-1)  # 걷는소리 재생
+            elif event.key == pygame.K_DOWN:
                 down_go = True
                 stop_ck = False
-            elif door_dist(ch.x, ch.y) == 'Left' and pygame.K_SPACE:
+                walk_sound.play(-1)  # 걷는소리 재생
+            elif door_dist(ch.x, ch.y) == 'Left' and event.key == pygame.K_SPACE:
                 door_open(0)
-            elif door_dist(ch.x, ch.y) == 'Right' and pygame.K_SPACE:
+            elif door_dist(ch.x, ch.y) == 'Right' and event.key == pygame.K_SPACE:
                 door_open(1)
+
         elif event.type == pygame.KEYUP:  # key를 뗐을때
             walk_sound.fadeout(450)
-            if event.key == pygame.K_LEFT:
+            if event.key == pygame.K_LEFT or pygame.K_RIGHT or pygame.K_UP or pygame.K_DOWN:
                 left_go = right_go = down_go = up_go = False
                 stop_ck = True
-            elif event.key == pygame.K_RIGHT:
-                left_go = right_go = down_go = up_go = False
-                stop_ck = True
-            elif event.key == pygame.K_UP:
-                left_go = right_go = down_go = up_go = False
-                stop_ck = True
-            elif event.key == pygame.K_DOWN:
-                left_go = right_go = down_go = up_go = False
-                stop_ck = True
-
     # 입력, 시간에 따른변화
 
     if left_go:
@@ -223,8 +217,9 @@ while Running:
         ch.y += movement
         if ch.y >= background_size[1]-ch.sy-15:
             ch.y = background_size[1]-ch.sy-15
+
     if stage != 4:
-        walkcount = ch.walk(walkcount, Left_watching, stop_ck)
+        walkcount = ch.walk(walkcount, Left_watching, stop_ck, walkcount_max)
 
     if not DEBUGGING:  # 캐릭터 좌표 디버깅
         print(ch.x, ch.y)

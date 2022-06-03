@@ -39,8 +39,7 @@ class Character:
             self.img, True, False)
         self.show(self.screen)
 
-    def walk(self, walkcount, turn, stop):  # 걷는 모션
-        walkcount_max = 8
+    def walk(self, walkcount, turn, stop, walkcount_max):  # 걷는 모션
         walk_speed = walkcount_max // 4
         if walkcount == walkcount_max:
             walkcount = 0
@@ -53,7 +52,8 @@ class Character:
                 self.flip()
             walkcount += 1
         if stop:
-            self.put_img(os.path.join(self.Path, 'img',f'{self.age}_walking_motion4.png'))
+            self.put_img(os.path.join(self.Path, 'img',
+                         f'{self.age}_walking_motion4.png'))
             self.change_size(120, 120)
             walkcount = 0
             if not turn:
