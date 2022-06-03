@@ -19,19 +19,22 @@ class Script:
         self.stage_name = ['<소년기>', '<청년기>',
                            '<장년기>', '<노년기>']
         self.screen = screen
+        self.count = 0
 
     def pass_over(self):
         loop = True
+        self.count += 1
         color = Black
         while loop:
-            if color == white:
-                color = Black
-            else:
-                color = white
-            pygame.draw.polygon(self.screen, color, [
-                                [300, 500], [308, 492], [292, 492]])
-            pygame.display.update()
-            pygame.time.delay(400)
+            if self.count != 11:
+                if color == white:
+                    color = Black
+                else:
+                    color = white
+                pygame.draw.polygon(self.screen, color, [
+                                    [300, 500], [308, 488], [292, 488]])
+                pygame.display.update()
+                pygame.time.delay(400)
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
                     loop = False

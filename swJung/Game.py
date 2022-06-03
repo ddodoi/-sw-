@@ -25,6 +25,7 @@ pygame.display.set_caption(title)  # 제목세팅
 
 walk_sound = pygame.mixer.Sound(  # 소리세팅
     os.path.join(Path, 'sound', 'walksound.mp3'))
+walk_sound.set_volume(0.3)
 door_sound = pygame.mixer.Sound(
     os.path.join(Path, 'sound', 'doorsound.mp3')
 )
@@ -76,7 +77,7 @@ def door_open(key):
 
 left_go = right_go = down_go = up_go = False  # 키 입력 변수
 
-movement = 3.5  # 이동량
+movement = 5  # 이동량
 walkcount = 0
 
 if not DEBUGGING:
@@ -88,7 +89,7 @@ if not DEBUGGING:
 Running = True  # 게임 진행 변수q
 Left_watching = True
 stop_ck = True
-walkcount_max = 16
+walkcount_max = 20
 Ending = False
 Starting = True
 
@@ -122,8 +123,8 @@ while Running:
             if ch.x >= 240:
                 ch.x = 240
                 ch.y -= 5
-                if ch.y <= 635:
-                    ch.y = 635
+                if ch.y <= 595:
+                    ch.y = 595
             screen.fill(Black)
             screen.blit(background, (0, 0))
             walkcount_max = 4
@@ -132,7 +133,7 @@ while Running:
             ch.show(screen)  # 캐릭터를 스크린에 표시
             scripts.stage_status(stage-1)
             pygame.time.delay(250)
-            if ch.y == 635:
+            if ch.y == 595:
                 pygame.time.delay(2000)
                 scripts.ending(select)
                 Ending_roll = True
@@ -156,7 +157,7 @@ while Running:
                                 ending_bgm.stop_music()
                                 ch.stage_chage()
                                 Ending_roll = False
-                                walkcount_max = 16
+                                walkcount_max = 20
                                 break
                             # 함수에select 리스트를 넘겨주면서 선택지에 따른
                             # 엔딩 출력 구현
