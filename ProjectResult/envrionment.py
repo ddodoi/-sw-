@@ -1,5 +1,6 @@
 import pygame
 import os
+import sys
 # pygame.init()
 
 # background_size = (600, 900)  # 화면크기
@@ -36,6 +37,9 @@ class Script:
                 pygame.display.update()
                 pygame.time.delay(400)
             for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
                 if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
                     loop = False
 
@@ -157,56 +161,76 @@ class Script:
         if select[0] == 'Study' and select[1] == 'Love':
             self.show_ending_scene('Study')
             self.print_ending_script(sc_list_1[0])
+            self.pass_over()
             self.show_ending_scene('Love')
             self.print_ending_script(sc_list_1[1])
+            self.pass_over()
             if select[2] == 'Work':
                 self.show_ending_scene('Work')
                 self.print_ending_script(sc_list_1[2])
+                self.pass_over()
                 self.print_ending_script(sc_list_1[3])
+                self.pass_over()
             elif select[2] == 'Family':
                 self.show_ending_scene('Family')
                 self.print_ending_script(sc_list_1[4])
+                self.pass_over()
                 self.print_ending_script(sc_list_1[5])
+                self.pass_over()
         elif select[0] == 'Art' and select[1] == 'Major':
             self.show_ending_scene('Art')
             self.print_ending_script(sc_list_2[0])
+            self.pass_over()
             self.show_ending_scene('Major')
             if select[2] == 'Work':
                 self.show_ending_scene('Work')
                 for i in range(1, 4):
                     self.print_ending_script(sc_list_2[i])
+                    self.pass_over()
             elif select[2] == 'Family':
                 self.show_ending_scene('Family')
                 for i in range(4, 7):
                     self.print_ending_script(sc_list_2[i])
+                    self.pass_over()
         elif select[0] == 'Art' and select[1] == 'Love':
             self.show_ending_scene('Art')
             self.print_ending_script(sc_list_3[0])
+            self.pass_over()
             self.show_ending_scene('Love')
             self.print_ending_script(sc_list_3[1])
+            self.pass_over()
             if select[2] == 'Work':
                 self.show_ending_scene('Work')
                 self.print_ending_script(sc_list_3[2])
+                self.pass_over()
                 self.print_ending_script(sc_list_3[3])
+                self.pass_over()
             elif select[2] == 'Family':
                 self.show_ending_scene('Family')
                 self.print_ending_script(sc_list_3[4])
+                self.pass_over()
                 self.print_ending_script(sc_list_3[5])
+                self.pass_over()
         else:
             self.show_ending_scene('Study')
             self.print_ending_script(sc_list_4[0])
+            self.pass_over()
             self.show_ending_scene('Major')
             self.print_ending_script(sc_list_4[1])
+            self.pass_over()
             if select[2] == 'Work':
                 self.show_ending_scene('Work')
                 for i in range(2, 5):
                     self.print_ending_script(sc_list_4[i])
+                    self.pass_over()
             elif select[2] == 'Family':
                 self.show_ending_scene('Family')
                 for i in range(5, 8):
                     self.print_ending_script(sc_list_4[i])
+                    self.pass_over()
         for endscript in sc_list_5:
             self.print_ending_script(endscript)
+            self.pass_over()
 
     def print_ending_script(self, stages):
         font = pygame.font.Font(self.address, 17)

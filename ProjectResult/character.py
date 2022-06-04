@@ -41,7 +41,7 @@ class Character:
 
     def walk(self, walkcount, turn, stop, walkcount_max):  # 걷는 모션
         walk_speed = walkcount_max // 4
-        if walkcount == walkcount_max:
+        if walkcount >= walkcount_max:
             walkcount = 0
 
         if not stop:
