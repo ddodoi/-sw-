@@ -160,6 +160,7 @@ while Running:
                                 Ending_roll = False
                                 walkcount_max = 20
                                 Script.count = 0
+                                playcount = 0
                                 stop_ck = True  # 재시작시 움직이는 버그 수정
                                 break
                             # 함수에select 리스트를 넘겨주면서 선택지에 따른
