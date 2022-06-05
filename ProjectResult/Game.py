@@ -90,6 +90,7 @@ Running = True  # 게임 진행 변수q
 Left_watching = True
 stop_ck = True
 walkcount_max = 20
+playcount = 0
 Ending = False
 Starting = True
 
@@ -120,11 +121,11 @@ while Running:
             ch.x += 5
             Left_watching = False
             stop_ck = False
-            if ch.x >= 240:
-                ch.x = 240
+            if ch.x >= 260:
+                ch.x = 260
                 ch.y -= 5
-                if ch.y <= 595:
-                    ch.y = 595
+                if ch.y <= 585:
+                    ch.y = 585
             screen.fill(Black)
             screen.blit(background, (0, 0))
             walkcount_max = 4
@@ -133,8 +134,8 @@ while Running:
             ch.show(screen)  # 캐릭터를 스크린에 표시
             scripts.stage_status(stage-1)
             pygame.time.delay(250)
-            if ch.y == 595:
-                pygame.time.delay(2000)
+            if ch.y == 585:
+                pygame.time.delay(3000)
                 scripts.ending(select)
                 Ending_roll = True
                 while Ending_roll:
@@ -158,6 +159,7 @@ while Running:
                                 ch.stage_chage()
                                 Ending_roll = False
                                 walkcount_max = 20
+                                Script.count = 0
                                 stop_ck = True  # 재시작시 움직이는 버그 수정
                                 break
                             # 함수에select 리스트를 넘겨주면서 선택지에 따른
@@ -168,37 +170,47 @@ while Running:
             pygame.quit()
             sys.exit()
         if event.type == pygame.KEYDOWN:  # key를 눌렀을때
-            walk_sound.play(-1)  # 걷는소리 재생
             if event.key == pygame.K_LEFT:
                 left_go = True
                 if not Left_watching:
                     Left_watching = True
                 stop_ck = False
+                playcount += 1
             elif event.key == pygame.K_RIGHT:
                 right_go = True
                 if Left_watching:
                     Left_watching = False
                 stop_ck = False
+                playcount += 1
             elif event.key == pygame.K_UP:
                 up_go = True
                 stop_ck = False
+                playcount += 1
             elif event.key == pygame.K_DOWN:
                 down_go = True
                 stop_ck = False
+                playcount += 1
             elif door_dist(ch.x, ch.y) == 'Left' and event.key == pygame.K_SPACE:
                 door_open(0)
             elif door_dist(ch.x, ch.y) == 'Right' and event.key == pygame.K_SPACE:
                 door_open(1)
+            if playcount == 1:
+                walk_sound.play(-1)  # 걷는소리 재생
         elif event.type == pygame.KEYUP:  # key를 눌렀을때
-            walk_sound.fadeout(700)
             if event.key == pygame.K_LEFT:
                 left_go = False
+                playcount -= 1
             elif event.key == pygame.K_RIGHT:
                 right_go = False
+                playcount -= 1
             elif event.key == pygame.K_UP:
                 up_go = False
+                playcount -= 1
             elif event.key == pygame.K_DOWN:
                 down_go = False
+                playcount -= 1
+            if playcount == 0:
+                walk_sound.fadeout(700)
 
     # if not(right_go or left_go or up_go or down_go):
     #    stop_ck = True
