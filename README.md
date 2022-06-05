@@ -9,7 +9,7 @@
 |윤국희|기획자, ppt작성| <a href="https://github.com/cookie-yoon"><img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=white"/></a> |
 |이찬우|개발자| <a href="https://github.com/cksdn43"><img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=white"/></a> |
 |김도형|스토리 작가, 현황 기록| <a href="https://github.com/dhkim98"><img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=white"/></a> |
-  
+
 <br> 
   
 </br> 
@@ -36,7 +36,7 @@
                    
                   
  + 방향키를 이용해서 캐릭터를 이동해보자! <img src="https://user-images.githubusercontent.com/101384306/170808526-b7a72b8a-82ae-4fc3-bee9-57c09cf9e194.gif"  width="150" height="150"/>
- + 문앞에서 SPACE키를 눌러 원하는 인생을 선택해보자! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://user-images.githubusercontent.com/101384306/172031575-cdf9e7eb-bb81-4c34-8986-5a14849d5c35.png" align="center" height="200px" width="200px">                                                    
+ + 문앞에서 SPACE키를 눌러 원하는 인생을 선택해보자! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://user-images.githubusercontent.com/101384306/172031688-4d1cc52b-99c3-4489-a4c7-b31d5dbc0a07.png" align="center" height="300px" width="300px">                                                    
                                         
  + 어떤 인생이 우리를 기다리고 있을까?
 
