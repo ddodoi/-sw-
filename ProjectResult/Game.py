@@ -61,7 +61,8 @@ def door_dist(x, y):  # 문 을 여는 거리
 
 
 def door_open(key):
-    global stage, Left_watching, left_go, right_go, down_go, up_go
+    global stage, Left_watching, left_go, right_go, down_go, up_go, playcount
+    playcount = 0
     bgm.pause_music()
     door_sound.play()
     walk_sound.stop()
@@ -159,7 +160,8 @@ while Running:
                                 ch.stage_chage()
                                 Ending_roll = False
                                 walkcount_max = 20
-                                Script.count = 0
+                                scripts.count = 0
+                                playcount = 0
                                 stop_ck = True  # 재시작시 움직이는 버그 수정
                                 break
                             # 함수에select 리스트를 넘겨주면서 선택지에 따른
