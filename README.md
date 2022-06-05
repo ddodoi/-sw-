@@ -36,7 +36,7 @@
                    
                   
  + 방향키를 이용해서 캐릭터를 이동해보자! <img src="https://user-images.githubusercontent.com/101384306/170808526-b7a72b8a-82ae-4fc3-bee9-57c09cf9e194.gif"  width="150" height="150"/>
- + 문앞에서 SPACE키를 눌러 원하는 인생을 선택해보자! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://user-images.githubusercontent.com/101384306/170940793-9e18a75c-b10f-4c6d-a813-361c1e3eab88.png" align="center" height="200px" width="200px">                                                                                                        
+ + 문앞에서 SPACE키를 눌러 원하는 인생을 선택해보자! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://user-images.githubusercontent.com/101384306/172031390-41a55562-7157-41f3-b400-5731553bb133.png" align="center" height="200px" width="200px">                                                                                            
  + 어떤 인생이 우리를 기다리고 있을까?
 
 <br> 
