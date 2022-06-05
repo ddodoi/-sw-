@@ -13,6 +13,8 @@ white = (255, 255, 255)
 
 
 class Script:
+    count = 0
+
     def __init__(self, Path, screen):
         self.Path = Path
         self.address = os.path.join(
@@ -20,14 +22,13 @@ class Script:
         self.stage_name = ['<소년기>', '<청년기>',
                            '<장년기>', '<노년기>']
         self.screen = screen
-        self.count = 0
 
     def pass_over(self):
         loop = True
-        self.count += 1
+        Script.count += 1
         color = Black
         while loop:
-            if self.count != 11:
+            if Script.count != 11:
                 if color == white:
                     color = Black
                 else:
@@ -42,6 +43,11 @@ class Script:
                     sys.exit()
                 if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
                     loop = False
+                    if Script.count != 11:
+                        pygame.draw.polygon(self.screen, Black, [
+                                            [300, 500], [308, 488], [292, 488]])
+                        pygame.display.update()
+                pygame.time.delay(100)
 
     def print_prologue(self):
         prologue = ["어서오세요.",
