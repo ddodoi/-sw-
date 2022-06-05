@@ -253,3 +253,4 @@ while Running:
 
 # 게임 종료
 pygame.quit()
+sys.exit()
