@@ -36,7 +36,7 @@
                    
                   
  + 방향키를 이용해서 캐릭터를 이동해보자! <img src="https://user-images.githubusercontent.com/101384306/170808526-b7a72b8a-82ae-4fc3-bee9-57c09cf9e194.gif"  width="150" height="150"/>
- + 문앞에서 SPACE키를 눌러 원하는 인생을 선택해보자! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://user-images.githubusercontent.com/101384306/172031688-4d1cc52b-99c3-4489-a4c7-b31d5dbc0a07.png" align="center" height="300px" width="300px">                                                    
+ + 문앞에서 SPACE키를 눌러 원하는 인생을 선택해보자! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://user-images.githubusercontent.com/101384306/172031688-4d1cc52b-99c3-4489-a4c7-b31d5dbc0a07.png" align="center" height="400px" width="300px">                                                    
                                         
  + 어떤 인생이 우리를 기다리고 있을까?
 
@@ -69,6 +69,8 @@ of Isaac (비디오 게임)’등의 게임을 참고해 선택지에 따라 엔
    
 # :mag_right: 개발현황
 ### <9주차>
+ * 파이게임을 기반으로한 게임을 개발하기로 
+
  * 개발 : 파이게임 모듈 개발에 필요한 기술 스택을 쌓을 시간이 필요함.
  
  * 그래픽 : 스토리 플롯이 확정된 후 그에 맞는 그래픽 개발을 진행할 수 있음.
