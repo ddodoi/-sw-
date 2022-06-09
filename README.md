@@ -161,6 +161,6 @@ of Isaac (비디오 게임)’등의 게임을 참고해 선택지에 따라 엔
  * 알고리즘 구현
    이찬우 팀원이 작성한 초안을 바탕으로 현재 정성욱, 이찬우 팀원이 구현 완료함.
  
- * 게임 개발 완료 및 
+ * 게임 개발 완료 및 디버그
 
 ![footer](https://capsule-render.vercel.app/api?type=waving&color=timeGradient&height=250&section=footer&text=감사합니다!!&animation=fadeIn&fontAlignY=65)
